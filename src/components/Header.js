@@ -25,6 +25,16 @@ function Header() {
 				<button>POST AN AD</button>
 				<button>AVAILABLE PROPERTIES</button>
 			</nav>
+			<section className="CallToAction">
+				<section>
+					<h3>Help Support Ukrainian Students and Scholars</h3>
+					<p>
+						The Centre for Advanced Research in Experimental and Applied Linguistics
+						(ARiEAL) is looking for landlords willing to offer discounted housing for
+						Ukrainian students and scholars coming to McMaster this spring.
+					</p>
+				</section>
+			</section>
 		</header>
 	);
 }

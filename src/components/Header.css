@@ -1,10 +1,12 @@
 .Header {
-	height: 190px;
-	display: grid;
-	grid-template-rows: 70% auto;
+	min-height: 350px;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
 }
 
 .HeaderBanner {
+	flex-grow: 0.8;
 	display: grid;
 	grid-template-columns: 16% auto 16%;
 }
@@ -22,7 +24,6 @@
 	align-self: center;
 	justify-self: center;
 	font-size: 42px;
-	font-family: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
 	font-weight: 500;
 	color: #7a003c;
 }
@@ -41,10 +42,10 @@
 	background-color: white;
 	border: none;
 	padding: 0;
+	box-sizing: border-box;
 	gap: 5px;
 	color: #5e6a71;
 	font-size: 15px;
-	font-family: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
 }
 
 .HeaderButtons > button > img {
@@ -57,20 +58,20 @@
 /*//////////////////////////////////////////////////*/
 
 .HeaderNav {
+	flex-grow: 0.6;
 	background-color: #7a003c;
 	display: flex;
-	align-items: center;
+	align-items: stretch;
 	justify-content: center;
+	box-shadow: 0px -10px 20px 0px rgba(0, 0, 0, 0.2);
 }
 
 .HeaderNav > button {
-	height: 100%;
 	box-sizing: border-box;
 	padding: 0px 20px;
 	background-color: #7a003c;
 	border: none;
-	font-size: 18px;
-	font-family: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
+	font-size: 16px;
 	color: white;
 	transition: all 0.3s;
 }
@@ -83,4 +84,34 @@
 
 button:hover {
 	cursor: pointer;
+}
+
+/*/ /////////////////////////////////////////////////*/
+
+.CallToAction {
+	flex-grow: 1.4;
+	background-color: #fdbf57;
+	padding: 0px 100px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.CallToAction > section {
+	display: flex;
+	gap: 40px;
+}
+
+.CallToAction > section > h3 {
+	flex: 1;
+	margin: 0;
+	font-size: 30px;
+	text-align: end;
+}
+
+.CallToAction > section > p {
+	font-size: 20px;
+	flex: 1.5;
+	margin: 0;
 }
