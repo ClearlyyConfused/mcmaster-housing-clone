@@ -1,0 +1,63 @@
+.Header {
+	height: 190px;
+	display: grid;
+	grid-template-rows: 70% auto;
+}
+
+.HeaderBanner {
+	display: grid;
+	grid-template-columns: 16% auto 16%;
+}
+
+.McMasterLogo {
+	height: 85px;
+	width: 180px;
+	align-self: center;
+	justify-self: flex-end;
+}
+
+.HeaderTitle {
+	margin: 0;
+	grid-column: 2 / 3;
+	align-self: center;
+	justify-self: center;
+	font-size: 42px;
+	font-family: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
+	font-weight: 500;
+	color: #7a003c;
+}
+
+.HeaderButtons {
+	display: flex;
+	align-items: center;
+	gap: 25px;
+}
+
+.HeaderButtons > button {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	border: none;
+	padding: 0;
+	gap: 5px;
+	color: #5e6a71;
+	font-size: 15px;
+	font-family: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
+}
+
+.HeaderButtons > button > img {
+	width: 40px;
+	height: auto;
+	filter: invert(40%) sepia(6%) saturate(909%) hue-rotate(158deg) brightness(97%)
+		contrast(86%);
+}
+
+.HeaderNav {
+	background-color: #7a003c;
+}
+
+button:hover {
+	cursor: pointer;
+}
