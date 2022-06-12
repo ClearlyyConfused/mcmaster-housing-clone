@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { callToActionInfo } from './Data';
 
 function CallToAction() {
@@ -19,6 +19,14 @@ function CallToAction() {
 			setCurrentDisplay(currentDisplay - 1);
 		}
 	}
+
+	useEffect(() => {
+		const timer = setInterval(changeDisplayForward, 5000);
+
+		return () => {
+			clearInterval(timer);
+		};
+	});
 
 	return (
 		<section className="CallToAction">
