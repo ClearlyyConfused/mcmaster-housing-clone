@@ -1,11 +1,11 @@
 .Header {
-	min-height: 350px;
 	display: flex;
 	flex-direction: column;
 	font-family: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
 }
 
 .HeaderBanner {
+	min-height: 130px;
 	flex-grow: 0.8;
 	display: grid;
 	grid-template-columns: 16% auto 16%;
@@ -58,6 +58,7 @@
 /*//////////////////////////////////////////////////*/
 
 .HeaderNav {
+	min-height: 60px;
 	flex-grow: 0.6;
 	background-color: #7a003c;
 	display: flex;
@@ -89,29 +90,51 @@ button:hover {
 /*/ /////////////////////////////////////////////////*/
 
 .CallToAction {
+	min-height: 160px;
 	flex-grow: 1.4;
 	background-color: #fdbf57;
-	padding: 0px 100px;
+	padding: 15px 15px;
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.CallToAction > section {
+.CallToAction {
 	display: flex;
 	gap: 40px;
 }
 
-.CallToAction > section > h3 {
+.CallToAction > h3 {
 	flex: 1;
 	margin: 0;
-	font-size: 30px;
+	font-size: 28px;
 	text-align: end;
 }
 
-.CallToAction > section > p {
-	font-size: 20px;
+.CallToAction > p {
+	font-size: 18px;
 	flex: 1.5;
 	margin: 0;
+}
+
+.CallToAction > button.ContactBtn {
+	height: fit-content;
+	max-width: 250px;
+	align-self: center;
+	justify-self: center;
+	border: none;
+	background-color: #7a003c;
+	color: white;
+	font-size: 14px;
+	font-weight: 600;
+	box-sizing: border-box;
+	padding: 12px 22px;
+	border-radius: 100px;
+}
+
+.CallToAction > button {
+	background-color: #fdbf57;
+	border: none;
+	font-size: 50px;
 }
