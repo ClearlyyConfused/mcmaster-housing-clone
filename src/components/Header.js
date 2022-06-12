@@ -2,7 +2,6 @@ import './Header.css';
 import McMasterLogo from '../images/McMasterLogo.svg';
 import searchIcon from '../images/search.svg';
 import menuIcon from '../images/menu.svg';
-import CallToAction from './CallToAction';
 
 function Header() {
 	return (
@@ -29,8 +28,6 @@ function Header() {
 				<button>POST AN AD</button>
 				<button>AVAILABLE PROPERTIES</button>
 			</nav>
-
-			<CallToAction />
 		</header>
 	);
 }

@@ -1,0 +1,146 @@
+.HomepageContent {
+	font-family: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
+}
+
+.CallToAction {
+	background-color: #fdbf57;
+	padding: 25px 15px;
+	flex: 1.1;
+	display: flex;
+	gap: 40px;
+}
+
+.CallToAction > button {
+	background-color: #fdbf57;
+	border: none;
+	font-size: 40px;
+	height: 50px;
+	min-width: 50px;
+	border-radius: 100px;
+	align-self: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.CallToAction > button:hover {
+	background-color: white;
+}
+
+.CallToActionInfo {
+	min-height: 110px;
+	background-color: #fdbf57;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 40px;
+}
+
+.CallToActionInfo > h3 {
+	flex: 1;
+	margin: 0;
+	font-size: 25px;
+	text-align: end;
+}
+
+.CallToActionInfo > p {
+	flex: 1.5;
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.CallToActionInfo > div {
+	width: 230px;
+	display: flex;
+	justify-content: flex-start;
+	box-sizing: border-box;
+}
+
+.CallToActionInfo > button {
+	height: fit-content;
+	width: fit-content;
+	max-width: 230px;
+
+	box-sizing: border-box;
+	padding: 12px 22px;
+	border: none;
+	border-radius: 100px;
+
+	background-color: #7a003c;
+	color: white;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+@media (max-width: 1000px) {
+	.CallToAction {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		padding: 25px 10px;
+		gap: 20px;
+		align-items: center;
+	}
+
+	.CallToActionInfo {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+	}
+
+	.CallToActionInfo > h3 {
+		text-align: start;
+	}
+}
+
+/*//////////////////////////////////////////////////*/
+
+.ContentContainer {
+	display: flex;
+	padding: 60px;
+	gap: 30px;
+}
+
+.ContentContainer > section {
+	flex: 1;
+	box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s;
+}
+
+.ContentContainer > section:hover {
+	background-color: #7a003c;
+}
+
+section:hover > .Content * {
+	color: white;
+}
+
+.Content {
+	padding: 10px 30px;
+}
+
+.ContentContainer > section:hover {
+	cursor: pointer;
+}
+
+.ContentContainer > section > img {
+	width: 100%;
+	height: auto;
+}
+
+.divider {
+	height: 5px;
+	width: 40px;
+	background-color: #7a003c;
+}
+
+section:hover .divider {
+	background-color: #fdbf57;
+}
+
+.ContentContainer > section > div > p {
+	color: #5e6a71;
+	line-height: 30px;
+}
