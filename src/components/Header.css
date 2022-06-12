@@ -33,6 +33,7 @@
 
 .HeaderButtons {
 	display: flex;
+	width: 180px;
 	align-items: center;
 	gap: 25px;
 }
@@ -78,6 +79,7 @@
 
 	.HeaderButtons {
 		justify-self: center;
+		width: auto;
 	}
 
 	button > .pageIndicator {

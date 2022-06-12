@@ -1,0 +1,41 @@
+.Footer {
+	background-color: #7a003c;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 35px;
+	gap: 40px;
+	font-family: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
+	color: white;
+}
+
+.Footer > img {
+	height: 120px;
+	width: auto;
+}
+
+.section1 {
+	display: flex;
+	gap: 75px;
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+
+.section3 {
+	display: flex;
+	gap: 30px;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+h6 {
+	margin: 0;
+}
