@@ -21,11 +21,13 @@ function Header() {
 					</button>
 				</div>
 			</section>
+
 			<nav className="HeaderNav">
 				<button>HOME</button>
 				<button>POST AN AD</button>
 				<button>AVAILABLE PROPERTIES</button>
 			</nav>
+
 			<CallToAction />
 		</header>
 	);
