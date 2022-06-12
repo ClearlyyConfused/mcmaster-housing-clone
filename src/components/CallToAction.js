@@ -3,23 +3,22 @@ import { useState } from 'react';
 function CallToAction() {
 	const [information, setInformation] = useState([
 		{
-			title: 'HELP SUPPORT UKRAINIAN Students AND SCHOLARS',
+			title: 'HELP SUPPORT UKRAINIAN STUDENTS AND SCHOLARS',
 			description:
 				'The Centre for Advanced Research in Experimental and Applied Linguistics (ARiEAL) is looking for landlords willing to offer discounted housing for Ukrainian students and scholars coming to McMaster this spring.',
 			contact: 'IF INTERESTED, PLEASE CONTACT ARIEAL',
 		},
 		{
-			title: 'City launches Rental Housing Licensing pilot program',
+			title: 'CITY LAUNCHES RENTAL HOUSING LICENSING PILOT PROGRAM',
 			description:
 				'Requirements, including the program’s phased-in approach, supporting documents, applicable fees and process, are located on the City’s Rental Housing Licensing pilot program website.',
 			contact: 'LEARN MORE',
 		},
 		{
-			title:
-				'Excepteur aliqua exercitation exercitation culpa labore laborum nostrud id aliqua.',
+			title: 'EXCEPTEUR ALIQUA EXERCITATION EXERCITATION CULPA LABORE LABORUM.',
 			description:
 				'Qui ex laborum minim sit occaecat ad consectetur incididunt voluptate adipisicing. Dolore sunt elit enim ad ea ea sint duis veniam quis. Id minim dolore id ullamco anim eiusmod reprehenderit. Id esse do id est non. ',
-			contact: 'Lorem ipsum quis officia id amet mollit.',
+			contact: 'LOREM IPSUM QUIS OFFICIA ID AMET MOLLIT.',
 		},
 	]);
 
@@ -44,9 +43,13 @@ function CallToAction() {
 	return (
 		<section className="CallToAction">
 			<button onClick={changeInfoBackwards}>&lt;</button>
-			<h3>{information[currentDisplay].title}</h3>
-			<p>{information[currentDisplay].description}</p>
-			<button className="ContactBtn">{information[currentDisplay].contact}</button>
+			<div>
+				<h3>{information[currentDisplay].title}</h3>
+				<p>{information[currentDisplay].description}</p>
+				<div>
+					<button className="ContactBtn">{information[currentDisplay].contact}</button>
+				</div>
+			</div>
 			<button onClick={changeInfoForward}>&gt;</button>
 		</section>
 	);
