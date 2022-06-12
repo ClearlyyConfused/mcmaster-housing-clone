@@ -23,7 +23,9 @@ function Header() {
 			</section>
 
 			<nav className="HeaderNav">
-				<button>HOME</button>
+				<button>
+					HOME<div className="pageIndicator"></div>
+				</button>
 				<button>POST AN AD</button>
 				<button>AVAILABLE PROPERTIES</button>
 			</nav>
