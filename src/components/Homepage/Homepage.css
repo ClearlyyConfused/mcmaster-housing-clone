@@ -143,7 +143,7 @@ section:hover > .Content * {
 	background-color: #7a003c;
 }
 
-section:hover .divider {
+.ContentContainer > section:hover .divider {
 	background-color: #fdbf57;
 }
 
