@@ -11,8 +11,9 @@
 }
 
 .Footer > img {
-	height: 120px;
-	width: auto;
+	width: 100%;
+	max-width: 400px;
+	height: auto;
 }
 
 .section1 {
@@ -39,14 +40,16 @@
 
 .section2 {
 	display: flex;
-	gap: 40px;
+	justify-content: space-around;
+	width: 100%;
+	flex-wrap: wrap;
+	max-width: 500px;
 }
 
 .section2 > a > img {
 	filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(310deg) brightness(104%)
 		contrast(101%);
 	width: 40px;
-	height: auto;
 }
 
 .section3 {
@@ -68,4 +71,19 @@ a:hover {
 
 h6 {
 	margin: 0;
+}
+
+@media (max-width: 600px) {
+	.section1 > .section1Content {
+		width: 100%;
+		gap: 30px;
+		flex-direction: column;
+		align-items: center;
+	}
+	.section3 {
+		gap: 20px;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
 }

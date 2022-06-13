@@ -101,6 +101,7 @@
 	display: flex;
 	padding: 70px;
 	gap: 30px;
+	flex-wrap: wrap;
 }
 
 .ContentContainer > section {
@@ -108,6 +109,7 @@
 	box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
 	transition: all 0.5s;
 	overflow: hidden;
+	min-width: 250px;
 }
 
 .ContentContainer > section:hover {
@@ -150,4 +152,10 @@ section:hover > .Content * {
 .ContentContainer > section > div > p {
 	color: #5e6a71;
 	line-height: 30px;
+}
+
+@media (max-width: 500px) {
+	.ContentContainer {
+		padding: 30px;
+	}
 }

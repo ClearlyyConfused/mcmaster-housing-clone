@@ -37,7 +37,8 @@ function Footer() {
 				</a>
 			</section>
 			<section className="section3">
-				<a href="">1280 Main Street West  Hamilton, Ontario L8S 3L8</a>
+				<a href="">1280 Main Street West</a>
+				<a href="">Hamilton, Ontario L8S 3L8</a>
 				<a href="">(905) 525-9140</a>
 			</section>
 			<h6>© 2022 McMaster University</h6>
