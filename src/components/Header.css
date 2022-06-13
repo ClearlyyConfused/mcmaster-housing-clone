@@ -35,7 +35,7 @@
 	display: flex;
 	width: 180px;
 	align-items: center;
-	gap: 25px;
+	gap: 15px;
 }
 
 .HeaderButtons > button {
@@ -49,7 +49,7 @@
 	box-sizing: border-box;
 	gap: 5px;
 	color: #5e6a71;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .HeaderButtons > button > img {
@@ -83,7 +83,6 @@
 	}
 
 	button > .pageIndicator {
-		margin-top: 16px;
 	}
 }
 
@@ -100,14 +99,24 @@
 }
 
 .pageIndicator {
-	width: 48px;
+	width: 100%;
 	height: 5px;
 	background-color: white;
-	position: absolute;
-	margin-top: 15.5px;
 }
 
-.HeaderNav > button {
+.HeaderNav > a {
+	flex: 1;
+	max-width: fit-content;
+}
+
+.HeaderNav > a:hover {
+	text-decoration: none;
+}
+
+.HeaderNav > a > button {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 	box-sizing: border-box;
 	padding: 0px 20px;
 	background-color: #7a003c;
@@ -115,9 +124,19 @@
 	font-size: 16px;
 	color: white;
 	transition: all 0.3s;
+	justify-content: flex-end;
 }
 
-.HeaderNav > button:hover {
+.HeaderNav > a > button > .headerText {
+	margin-bottom: auto;
+	margin-top: auto;
+}
+
+.HeaderNav > a > button > div:nth-child(1) {
+	opacity: 0;
+}
+
+.HeaderNav > a > button:hover {
 	color: black;
 	background-color: white;
 	box-shadow: 0px -8px 20px 0px rgba(0, 0, 0, 0.1);
