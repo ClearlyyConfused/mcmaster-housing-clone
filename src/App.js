@@ -1,4 +1,4 @@
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import Homepage from './components/Homepage/Homepage';
 import Footer from './components/Footer';
 import PostAnAd from './components/PostAnAd/PostAnAd';
