@@ -113,7 +113,7 @@
 	text-decoration: none;
 }
 
-.HeaderNav > a > button {
+.HeaderNav button {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
@@ -127,7 +127,7 @@
 	justify-content: flex-end;
 }
 
-.HeaderNav > a > button > .headerText {
+.HeaderNav button > .headerText {
 	margin-bottom: auto;
 	margin-top: auto;
 }
@@ -136,7 +136,7 @@
 	opacity: 0;
 }
 
-.HeaderNav > a > button:hover {
+.HeaderNav button:hover {
 	color: black;
 	background-color: white;
 	box-shadow: 0px -8px 20px 0px rgba(0, 0, 0, 0.1);

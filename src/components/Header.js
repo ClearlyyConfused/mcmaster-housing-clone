@@ -85,18 +85,22 @@ function Header() {
 					</button>
 				</Link>
 				{user === null ? (
-					<button onClick={signIn}>Login</button>
+					<a>
+						<button className="loginBtn" onClick={signIn}>
+							<span className="headerText">LOGIN</span>
+						</button>
+					</a>
 				) : (
-					<div>
-						<h3>Welcome {user.displayName}</h3>
+					<a>
 						<button
+							className="loginBtn"
 							onClick={() => {
 								auth.signOut();
 							}}
 						>
-							Logout
+							<span className="headerText">LOGOUT</span>
 						</button>
-					</div>
+					</a>
 				)}
 			</nav>
 		</header>
