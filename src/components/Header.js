@@ -4,9 +4,18 @@ import searchIcon from '../images/search.svg';
 import menuIcon from '../images/menu.svg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import firebase from 'firebase/compat/app';
+import { auth } from '../Firebase';
 
 function Header() {
 	const [currentPage, setCurrentPage] = useState('home');
+	const [user] = useAuthState(auth);
+
+	function signIn() {
+		const provider = new firebase.auth.GoogleAuthProvider();
+		auth.signInWithPopup(provider);
+	}
 
 	return (
 		<header className="Header">
@@ -75,6 +84,20 @@ function Header() {
 						)}
 					</button>
 				</Link>
+				{user === null ? (
+					<button onClick={signIn}>Login</button>
+				) : (
+					<div>
+						<h3>Welcome {user.displayName}</h3>
+						<button
+							onClick={() => {
+								auth.signOut();
+							}}
+						>
+							Logout
+						</button>
+					</div>
+				)}
 			</nav>
 		</header>
 	);

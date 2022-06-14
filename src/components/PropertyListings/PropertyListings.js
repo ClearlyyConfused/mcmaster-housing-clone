@@ -11,9 +11,11 @@ function PropertyListings() {
 
 	return (
 		<main>
-			Welcome {user.displayName}
-			{/* prettier-ignore */}
-			<button onClick={() => {auth.signOut()}}>Log Out </button>
+			<section className="welcomeUser">
+				Welcome {user.displayName}
+				{/* prettier-ignore */}
+				<button onClick={() => {auth.signOut()}}>Log Out </button>
+			</section>
 		</main>
 	);
 }
