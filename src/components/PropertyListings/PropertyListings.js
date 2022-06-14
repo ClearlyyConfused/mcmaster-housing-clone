@@ -1,35 +1,21 @@
-import firebase from 'firebase/compat/app';
 import { auth } from '../../Firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import Login from '../Login';
 
 function PropertyListings() {
 	const [user] = useAuthState(auth);
 
-	function signIn() {
-		const provider = new firebase.auth.GoogleAuthProvider();
-		auth.signInWithPopup(provider);
+	if (user === null) {
+		return <Login />;
 	}
 
-	if (user !== null) {
-		return (
-			<div>
-				Logged in
-				<button
-					onClick={() => {
-						auth.signOut();
-					}}
-				>
-					Log Out
-				</button>
-			</div>
-		);
-	} else {
-		return (
-			<div>
-				Please sign in<button onClick={signIn}>Sign In</button>
-			</div>
-		);
-	}
+	return (
+		<main>
+			Welcome {user.displayName}
+			{/* prettier-ignore */}
+			<button onClick={() => {auth.signOut()}}>Log Out </button>
+		</main>
+	);
 }
 
 export default PropertyListings;
