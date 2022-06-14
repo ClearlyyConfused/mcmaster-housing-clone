@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/mcmaster-housing-clone/static/css/main.c1db7157.css",
+    "main.js": "/mcmaster-housing-clone/static/js/main.678fcb88.js",
+    "static/media/sectionImg1.png": "/mcmaster-housing-clone/static/media/sectionImg1.52167003c9ec372c6379.png",
+    "static/media/sectionImg4.jpeg": "/mcmaster-housing-clone/static/media/sectionImg4.927280b8cf8c810be7f6.jpeg",
+    "static/media/sectionImg2.jpg": "/mcmaster-housing-clone/static/media/sectionImg2.47a617d9014ebd5a73e0.jpg",
+    "static/media/sectionImg3.jpeg": "/mcmaster-housing-clone/static/media/sectionImg3.4ea9398a37f8c4d77965.jpeg",
+    "static/media/McMasterLogo.svg": "/mcmaster-housing-clone/static/media/McMasterLogo.87019c9773fe394fb9bd40e7456d433a.svg",
+    "static/media/McMasterBrighterWorldLogo.png": "/mcmaster-housing-clone/static/media/McMasterBrighterWorldLogo.49476f668bbfe1dcfd34.png",
+    "index.html": "/mcmaster-housing-clone/index.html",
+    "static/media/twitter.svg": "/mcmaster-housing-clone/static/media/twitter.2d02a4827d039b066833040bc4290eb8.svg",
+    "static/media/youtube.svg": "/mcmaster-housing-clone/static/media/youtube.b1ed07ef92b75d897c8a52c2c9c74205.svg",
+    "static/media/instagram.svg": "/mcmaster-housing-clone/static/media/instagram.f2b78dfef81e7fd6b5695c5fb87f6826.svg",
+    "static/media/linkedin.svg": "/mcmaster-housing-clone/static/media/linkedin.0075ae00b2d9e11dab57dc85610298cf.svg",
+    "static/media/facebook.svg": "/mcmaster-housing-clone/static/media/facebook.d22f82ee0d2779c3f26737b5f32692e8.svg",
+    "static/media/search.svg": "/mcmaster-housing-clone/static/media/search.bb8056749540827091cad74fff4e57f3.svg",
+    "static/media/menu.svg": "/mcmaster-housing-clone/static/media/menu.f00e2080025681cdfae3542d27c70e9f.svg",
+    "main.c1db7157.css.map": "/mcmaster-housing-clone/static/css/main.c1db7157.css.map",
+    "main.678fcb88.js.map": "/mcmaster-housing-clone/static/js/main.678fcb88.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c1db7157.css",
+    "static/js/main.678fcb88.js"
+  ]
+}
