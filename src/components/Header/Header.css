@@ -142,7 +142,15 @@ button:hover {
 	height: 60px;
 }
 
+.HeaderDropdown.HeaderNav > div > a > button {
+	height: 60px;
+}
+
 .HeaderDropdown.HeaderNav > button {
+	height: 60px;
+}
+
+.HeaderDropdown.HeaderNav > div > button {
 	height: 60px;
 }
 
@@ -157,4 +165,16 @@ button:hover {
 
 .HeaderDropdown > a > button {
 	width: 100%;
+}
+
+.dropdownItemsactive {
+	height: 240px;
+	overflow: hidden;
+	transition: all 0.5s;
+}
+
+.dropdownItemsinactive {
+	overflow: hidden;
+	height: 0px;
+	transition: all 0.5s;
 }

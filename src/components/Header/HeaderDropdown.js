@@ -44,6 +44,7 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 
 	const [display, setDisplay] = useState('inactive');
 	let firstButton;
+	const [buttonStatus, setButtonStatus] = useState(false);
 
 	if (currentPage === 'HOME') {
 		firstButton = buttons[0];
@@ -55,19 +56,23 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 		firstButton = buttons[2];
 	}
 
-	if (display === 'inactive') {
-		return <nav className="HeaderDropdown HeaderNav">{firstButton}</nav>;
+	let x;
+	if (display === 'active') {
+		x = 'inactive';
+	} else {
+		x = 'active';
 	}
 
-	if (display === 'active') {
-		return (
-			<nav
-				className="HeaderDropdown HeaderNav"
-				onClick={() => {
-					setDisplay('inactive');
-				}}
-			>
-				{firstButton}
+	return (
+		<nav
+			className="HeaderDropdown HeaderNav"
+			disabled={buttonStatus}
+			onClick={() => {
+				setDisplay(x);
+			}}
+		>
+			{firstButton}
+			<div className={`dropdownItems${display}`}>
 				<Link to="/">
 					<button
 						onClick={() => {
@@ -102,12 +107,12 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 				) : (
 					/* prettier-ignore */
 					<button className="loginBtn" onClick={() => {auth.signOut();}}>
-						<span className="headerText">LOGOUT</span>
-					</button>
+							<span className="headerText">LOGOUT</span>
+						</button>
 				)}
-			</nav>
-		);
-	}
+			</div>
+		</nav>
+	);
 }
 
 export default HeaderDropDown;
