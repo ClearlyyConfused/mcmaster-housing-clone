@@ -138,6 +138,19 @@ button:hover {
 	flex-direction: column;
 }
 
+.HeaderDropdown.HeaderNav > a {
+	height: 60px;
+}
+
+.HeaderDropdown.HeaderNav > button {
+	height: 60px;
+}
+
+.HeaderDropdown.HeaderNav button {
+	display: flex;
+	justify-content: center;
+}
+
 .HeaderDropdown > a {
 	width: 100%;
 }

@@ -31,7 +31,7 @@ function Header() {
 
 	const [currentPage, setCurrentPage] = useState('HOME');
 
-	if (viewWidth < 550) {
+	if (viewWidth < 600) {
 		return (
 			<header className="Header">
 				<HeaderBanner />
