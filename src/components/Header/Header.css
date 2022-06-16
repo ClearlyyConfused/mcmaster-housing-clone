@@ -138,43 +138,26 @@ button:hover {
 	flex-direction: column;
 }
 
-.HeaderDropdown.HeaderNav > a {
+.HeaderDropdown.HeaderNav a {
 	height: 60px;
-}
-
-.HeaderDropdown.HeaderNav > div > a > button {
-	height: 60px;
-}
-
-.HeaderDropdown.HeaderNav > button {
-	height: 60px;
-}
-
-.HeaderDropdown.HeaderNav > div > button {
-	height: 60px;
+	text-decoration: none;
 }
 
 .HeaderDropdown.HeaderNav button {
 	display: flex;
 	justify-content: center;
-}
-
-.HeaderDropdown > a {
+	height: 60px;
 	width: 100%;
 }
 
-.HeaderDropdown > a > button {
-	width: 100%;
-}
-
-.dropdownItemsactive {
+.dropdownActive-true {
 	height: 240px;
 	overflow: hidden;
 	transition: all 0.5s;
 }
 
-.dropdownItemsinactive {
-	overflow: hidden;
+.dropdownActive-false {
 	height: 0px;
+	overflow: hidden;
 	transition: all 0.5s;
 }
