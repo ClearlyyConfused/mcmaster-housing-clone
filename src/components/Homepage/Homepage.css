@@ -3,59 +3,42 @@
 	overflow: hidden;
 }
 
-.CallToActionF {
-	background-color: #fdbf57;
-	padding: 25px 15px;
-	flex: 1.1;
+.CallToActionF,
+.CallToActionB {
 	display: flex;
-	gap: 40px;
-	overflow: hidden;
-	transition: all 1s;
 	height: fit-content;
+	background-color: #fdbf57;
+	padding: 25px 10px;
+	gap: 10px;
+}
+
+.CallToActionF {
 	animation: slideInF 1s;
 }
 
 .CallToActionB {
-	background-color: #fdbf57;
-	padding: 25px 15px;
-	flex: 1.1;
-	display: flex;
-	gap: 40px;
-	overflow: hidden;
-	transition: all 1s;
-	height: fit-content;
 	animation: slideInB 1s;
 }
 
 @keyframes slideInF {
 	0% {
-		min-width: 100vw;
-		margin-left: 2000px;
+		position: relative;
+		left: 3000px;
 		opacity: 0;
-		height: fit-content;
 	}
 	100% {
-		height: fit-content;
-		min-width: 95vw;
-		flex: 1.1;
-		margin-left: 0px;
+		position: relative;
+		left: 0px;
 		opacity: 1;
 	}
 }
 
 @keyframes slideInB {
 	0% {
-		min-width: 100vw;
-		opacity: 1;
-		height: fit-content;
 		position: relative;
 		right: 3000px;
 	}
 	100% {
-		height: fit-content;
-		min-width: 95vw;
-		flex: 1.1;
-		opacity: 1;
 		position: relative;
 		right: 0px;
 	}
@@ -80,14 +63,18 @@
 
 .CallToActionF > button,
 .CallToActionB > button {
-	background-color: #fdbf57;
-	border: none;
-	font-size: 40px;
 	height: 50px;
 	min-width: 50px;
-	border-radius: 100px;
-	align-self: center;
+
+	background-color: #fdbf57;
+	font-size: 40px;
 	display: flex;
+	padding: 0;
+
+	border: none;
+	border-radius: 100px;
+
+	align-self: center;
 	align-items: center;
 	justify-content: center;
 }
@@ -150,33 +137,27 @@
 	display: flex;
 	height: fit-content;
 	max-width: 100vw;
-	overflow: hidden;
+}
+
+.CallToActionInactiveF,
+.CallToActionInactiveB {
+	display: flex;
+	width: fit-content;
+	height: fit-content;
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	padding: 25px 15px;
+	background-color: #fdbf57;
+	animation: slideOutF 1s;
 }
 
 .CallToActionInactiveF {
-	display: flex;
-	width: 95vw;
-	height: fit-content;
-	position: absolute;
-	overflow: hidden;
-	z-index: -1;
 	animation: slideOutF 1s;
-	opacity: 0;
-	padding: 25px 15px;
-	background-color: #fdbf57;
 }
 
 .CallToActionInactiveB {
-	display: flex;
-	width: 95vw;
-	height: fit-content;
-	position: absolute;
-	overflow: hidden;
-	z-index: -1;
 	animation: slideOutB 1s;
-	opacity: 0;
-	padding: 25px 15px;
-	background-color: #fdbf57;
 }
 
 .CallToActionInactiveF > *,

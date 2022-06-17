@@ -24,10 +24,10 @@ function CallToAction() {
 	}
 
 	useEffect(() => {
-		// const timer = setInterval(changeDisplayForward, 10000);
-		// return () => {
-		//clearInterval(timer);
-		//};
+		const timer = setInterval(changeDisplayForward, 10000);
+		return () => {
+			clearInterval(timer);
+		};
 	});
 
 	return (
@@ -64,32 +64,19 @@ function infoDisplayFirst(
 	changeDisplayForward,
 	x
 ) {
+	const classVer = x === 0 ? 'CallToActionF' : 'CallToActionB';
 	if (currentDisplay === index) {
-		if (x === 0) {
-			return (
-				<section className="CallToActionF">
-					<button onClick={changeDisplayBackwards}>&lt;</button>
-					<div className="CallToActionInfo">
-						<h3>{info.title}</h3>
-						<p>{info.description}</p>
-						<button className="ContactBtn">{info.contact}</button>
-					</div>
-					<button onClick={changeDisplayForward}>&gt;</button>
-				</section>
-			);
-		} else {
-			return (
-				<section className="CallToActionB">
-					<button onClick={changeDisplayBackwards}>&lt;</button>
-					<div className="CallToActionInfo">
-						<h3>{info.title}</h3>
-						<p>{info.description}</p>
-						<button className="ContactBtn">{info.contact}</button>
-					</div>
-					<button onClick={changeDisplayForward}>&gt;</button>
-				</section>
-			);
-		}
+		return (
+			<section className={classVer}>
+				<button onClick={changeDisplayBackwards}>&lt;</button>
+				<div className="CallToActionInfo">
+					<h3>{info.title}</h3>
+					<p>{info.description}</p>
+					<button className="ContactBtn">{info.contact}</button>
+				</div>
+				<button onClick={changeDisplayForward}>&gt;</button>
+			</section>
+		);
 	}
 }
 
@@ -105,31 +92,18 @@ function infoDisplay(
 		return null;
 	}
 
-	if (x === 0) {
-		return (
-			<section className="CallToActionInactiveF">
-				<button onClick={changeDisplayBackwards}>&lt;</button>
-				<div className="CallToActionInfo">
-					<h3>{info.title}</h3>
-					<p>{info.description}</p>
-					<button className="ContactBtn">{info.contact}</button>
-				</div>
-				<button onClick={changeDisplayForward}>&gt;</button>
-			</section>
-		);
-	} else {
-		return (
-			<section className="CallToActionInactiveB">
-				<button onClick={changeDisplayBackwards}>&lt;</button>
-				<div className="CallToActionInfo">
-					<h3>{info.title}</h3>
-					<p>{info.description}</p>
-					<button className="ContactBtn">{info.contact}</button>
-				</div>
-				<button onClick={changeDisplayForward}>&gt;</button>
-			</section>
-		);
-	}
+	const classVer = x === 0 ? 'CallToActionInactiveF' : 'CallToActionInactiveB';
+	return (
+		<section className={classVer}>
+			<button onClick={changeDisplayBackwards}>&lt;</button>
+			<div className="CallToActionInfo">
+				<h3>{info.title}</h3>
+				<p>{info.description}</p>
+				<button className="ContactBtn">{info.contact}</button>
+			</div>
+			<button onClick={changeDisplayForward}>&gt;</button>
+		</section>
+	);
 }
 
 export default CallToAction;
