@@ -1,6 +1,7 @@
 import { auth } from '../../Firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Login from '../Login';
+import './PostAnAd.css';
 
 function PostAnAd() {
 	const [user] = useAuthState(auth);
@@ -10,10 +11,16 @@ function PostAnAd() {
 	}
 
 	return (
-		<main>
-			Welcome {user.displayName}
-			{/* prettier-ignore */}
-			<button onClick={() => {auth.signOut()}}>Log Out </button>
+		<main className="post-an-ad">
+			<main className="post-an-ad-error">
+				<h3>ACCESS DENIED</h3>
+				<p>
+					Current account <strong>({user.displayName})</strong> does not have the
+					permissions to post an ad. If you think this is a mistake, contact the main
+					office.
+				</p>
+				<button>RETURN TO HOMEPAGE</button>
+			</main>
 		</main>
 	);
 }
