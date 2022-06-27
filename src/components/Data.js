@@ -35,13 +35,13 @@ const propertyInfo = [
 	{
 		location: 'Property 2',
 		description:
-			'Aliqua quis quis sint aliqua magna non. Occaecat magna consectetur cillum aliquip quis occaecat anim laborum occaecat sunt esse irure est culpa.',
+			'Aliqua quis quis sint aliqua magna non. Occaecat magna consectetur cillum aliquip quis occaecat anim laborum occaecat sunt esse irure est culpa. Reprehenderit amet enim nisi non. Id quis quis occaecat duis commodo consequat nostrud deserunt.',
 		cost_per_month: 670,
 		distance: 5,
 		image: propertyImg2,
 	},
 	{
-		location: 'Property 3',
+		location: 'Exercitation incididunt tempor ea nulla id sint velit.',
 		description:
 			'Irure est Lorem commodo sint voluptate deserunt duis enim officia ut sint culpa sit.',
 		cost_per_month: 800,
@@ -51,7 +51,7 @@ const propertyInfo = [
 	{
 		location: 'Property 4',
 		description:
-			'Sunt incididunt cupidatat dolor occaecat id aute culpa occaecat magna adipisicing est.',
+			'Sunt incididunt cupidatat dolor occaecat id aute culpa occaecat magna adipisicing est. Eu id incididunt dolore cillum duis laboris. Quis laboris ea qui reprehenderit occaecat minim qui aliquip.',
 		cost_per_month: 500,
 		distance: 5.4,
 		image: propertyImg2,

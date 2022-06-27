@@ -227,6 +227,7 @@
 	transition: all 0.5s;
 	overflow: hidden;
 	min-width: 250px;
+	border: 1px solid gray;
 }
 
 .ContentContainer > section:hover {
@@ -235,7 +236,7 @@
 }
 
 .ContentContainer section:hover img {
-	transform: scale(1.1);
+	transform: scale(1.05);
 }
 
 section:hover > .Content * {
