@@ -1,6 +1,9 @@
 import { auth } from '../../Firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Login from '../Login';
+import { propertyInfo } from '../Data';
+import DisplayProperty from './DisplayProperty';
+import './PropertyListings.css';
 
 function PropertyListings() {
 	const [user] = useAuthState(auth);
@@ -10,11 +13,12 @@ function PropertyListings() {
 	}
 
 	return (
-		<main>
-			<section className="welcomeUser">
-				Welcome {user.displayName}
-				{/* prettier-ignore */}
-				<button onClick={() => {auth.signOut()}}>Log Out </button>
+		<main className="property-listing-page">
+			<section className="property-side-bar"></section>
+			<section className="property-listings">
+				{propertyInfo.map((property) => {
+					return <DisplayProperty property={property} />;
+				})}
 			</section>
 		</main>
 	);

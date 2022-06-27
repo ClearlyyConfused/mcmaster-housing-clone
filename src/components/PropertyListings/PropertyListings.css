@@ -1,0 +1,33 @@
+.property-listing-page {
+	display: flex;
+}
+
+.property-side-bar {
+	min-width: 275px;
+	border: 1px solid black;
+}
+
+.property-listings {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 20px;
+}
+
+.property-display {
+	width: 300px;
+	height: 400px;
+
+	border: 2px solid black;
+}
+
+.property-img-container {
+	height: 75%;
+}
+
+.property-display img {
+	z-index: -2;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}

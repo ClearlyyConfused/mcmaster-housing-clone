@@ -1,3 +1,7 @@
+import propertyImg1 from '../images/propertyImgs/propertyImg1.jpg';
+import propertyImg2 from '../images/propertyImgs/propertyImg2.jpg';
+import propertyImg3 from '../images/propertyImgs/propertyImg3.jpg';
+
 const callToActionInfo = [
 	{
 		title: 'HELP SUPPORT UKRAINIAN STUDENTS AND SCHOLARS',
@@ -19,4 +23,39 @@ const callToActionInfo = [
 	},
 ];
 
-export { callToActionInfo };
+const propertyInfo = [
+	{
+		location: 'Property 1',
+		description:
+			'Non ea dolore cupidatat velit. Cupidatat cillum amet Lorem enim cillum laborum consequat Lorem.',
+		cost_per_month: 250,
+		distance: 10,
+		image: propertyImg1,
+	},
+	{
+		location: 'Property 2',
+		description:
+			'Aliqua quis quis sint aliqua magna non. Occaecat magna consectetur cillum aliquip quis occaecat anim laborum occaecat sunt esse irure est culpa.',
+		cost_per_month: 670,
+		distance: 5,
+		image: propertyImg2,
+	},
+	{
+		location: 'Property 3',
+		description:
+			'Irure est Lorem commodo sint voluptate deserunt duis enim officia ut sint culpa sit.',
+		cost_per_month: 800,
+		distance: 1,
+		image: propertyImg3,
+	},
+	{
+		location: 'Property 4',
+		description:
+			'Sunt incididunt cupidatat dolor occaecat id aute culpa occaecat magna adipisicing est.',
+		cost_per_month: 500,
+		distance: 5.4,
+		image: propertyImg2,
+	},
+];
+
+export { callToActionInfo, propertyInfo };
