@@ -150,13 +150,13 @@ button:hover {
 	width: 100%;
 }
 
-.dropdownActive-true {
+.nav-dropdown-active-true {
 	height: 240px;
 	overflow: hidden;
 	transition: all 0.5s;
 }
 
-.dropdownActive-false {
+.nav-dropdown-active-false {
 	height: 0px;
 	overflow: hidden;
 	transition: all 0.5s;

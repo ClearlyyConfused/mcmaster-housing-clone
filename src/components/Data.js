@@ -25,7 +25,7 @@ const callToActionInfo = [
 
 const propertyInfo = [
 	{
-		location: 'Property 1',
+		location: 'Test 123',
 		description:
 			'Non ea dolore cupidatat velit. Cupidatat cillum amet Lorem enim cillum laborum consequat Lorem.',
 		cost_per_month: 250,
@@ -34,7 +34,7 @@ const propertyInfo = [
 		date: '2022-01-05',
 	},
 	{
-		location: 'Property 2',
+		location: '01 Scary Road [Haunted House]',
 		description:
 			'Aliqua quis quis sint aliqua magna non. Occaecat magna consectetur cillum aliquip quis occaecat anim laborum occaecat sunt esse irure est culpa. Reprehenderit amet enim nisi non. Id quis quis occaecat duis commodo consequat nostrud deserunt.',
 		cost_per_month: 670,
@@ -52,13 +52,22 @@ const propertyInfo = [
 		date: '2022-04-27',
 	},
 	{
-		location: 'Property 4',
+		location: '722 Rainbow Road',
 		description:
 			'Sunt incididunt cupidatat dolor occaecat id aute culpa occaecat magna adipisicing est. Eu id incididunt dolore cillum duis laboris. Quis laboris ea qui reprehenderit occaecat minim qui aliquip.',
 		cost_per_month: 500,
 		distance: 5.4,
 		image: propertyImg2,
 		date: '2022-06-27',
+	},
+	{
+		location: '123 ABC Road',
+		description:
+			'Sunt incididunt cupidatat dolor occaecat id aute culpa occaecat magna adipisicing est. Eu id incididunt dolore cillum duis laboris. Quis laboris ea qui reprehenderit occaecat minim qui aliquip. Et sit quis id consequat id voluptate id.',
+		cost_per_month: 1000,
+		distance: 0.4,
+		image: propertyImg3,
+		date: '2022-06-20',
 	},
 ];
 

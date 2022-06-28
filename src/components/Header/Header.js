@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import firebase from 'firebase/compat/app';
 import { auth } from '../../Firebase';
+import { useLocation } from 'react-router-dom';
 import HeaderBanner from './HeaderBanner';
 import HeaderNavBtn from './HeaderNavBtn';
 import HeaderDropDown from './HeaderDropdown';
@@ -20,7 +21,7 @@ function Header() {
 		window.addEventListener('resize', handleResize);
 
 		return () => {
-			window.removeEventListener('reisze', handleResize);
+			window.removeEventListener('resize', handleResize);
 		};
 	}, []);
 
@@ -29,7 +30,16 @@ function Header() {
 		auth.signInWithPopup(provider);
 	}
 
-	const [currentPage, setCurrentPage] = useState('HOME');
+	let startingPage = useLocation().pathname;
+	if (startingPage === '/') {
+		startingPage = 'HOME';
+	} else if (startingPage === '/post-a-property') {
+		startingPage = 'POST AD';
+	} else if (startingPage === '/available-properties') {
+		startingPage = 'AVAILABLE PROPERTIES';
+	}
+
+	const [currentPage, setCurrentPage] = useState(startingPage);
 
 	if (viewWidth < 600) {
 		return (

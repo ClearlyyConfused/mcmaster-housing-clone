@@ -1,17 +1,20 @@
+import { useState, useEffect } from 'react';
+
 import { auth } from '../../Firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Login from '../Login';
 import { propertyInfo } from '../Data';
-import DisplayProperty from './DisplayProperty';
+
 import './PropertyListings.css';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import Login from '../Login';
+import DisplayProperty from './DisplayProperty';
 
 function PropertyListings() {
 	const [user] = useAuthState(auth);
+
 	const [propertyList, setPropertyList] = useState(propertyInfo);
-	const [sortby, setSortby] = useState('PRICE ^');
-	const [dropdown_active, setDropdownActive] = useState(true);
+	const [sortby, setSortby] = useState('LATEST');
+
+	const [dropdown_active, setNavDropdownActive] = useState(false);
 
 	function sortProperties(type) {
 		let newList;
@@ -34,23 +37,22 @@ function PropertyListings() {
 		sortProperties(sortby);
 	}, [sortby]);
 
-	if (user === null) {
-		return <Login />;
-	}
-
-	return (
+	return user === null ? (
+		<Login />
+	) : (
 		<main className="property-listing-page">
 			<section className="property-side-bar">
 				<h3 className="sortby-tab">
 					SORT BY
 					<div
-						className="sortby-dropdown"
 						onClick={() => {
-							setDropdownActive(!dropdown_active);
+							setNavDropdownActive(!dropdown_active);
 						}}
 					>
 						<div className="sortby-title">{sortby}</div>
-						<div className={`sortby-dropdown-items dropdown-active-${dropdown_active}`}>
+						<div
+							className={`sortby-dropdown-items sortby-dropdown-active-${dropdown_active}`}
+						>
 							{/* prettier-ignore */}
 							<h4 onClick={() => {setSortby('PRICE ^');}}>
 								PRICE ^

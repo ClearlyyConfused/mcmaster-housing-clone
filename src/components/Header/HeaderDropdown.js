@@ -40,7 +40,7 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 		<nav className="HeaderDropdown HeaderNav" onClick={() => {setDisplay(!display);}}>
 			{headerTop}
 
-			<div className={`dropdownActive-${display}`}>
+			<div className={`nav-dropdown-active-${display}`}>
 				<Link to="/">
 					<button onClick={() => {setCurrentPage('HOME');}}>HOME</button>
 				</Link>
