@@ -16,6 +16,7 @@ function PropertyListings() {
 
 	const [minPrice, setMinPrice] = useState(0);
 	const [maxPrice, setMaxPrice] = useState(1000);
+	const [maxDistance, setMaxDistance] = useState(10);
 
 	const [dropdown_active, setNavDropdownActive] = useState(false);
 
@@ -36,19 +37,17 @@ function PropertyListings() {
 		setPropertyList(newList);
 	}
 
-	function filterProperties(type) {
-		console.log(type);
-		if (type === 'NONE') {
-			setPropertyList(propertyInfo);
-			return;
-		}
+	function filterProperties(filter) {
+		console.log(filter);
 
 		let newList = [];
-		if (Array.isArray(type)) {
-			for (const property of propertyInfo) {
-				if (property.cost_per_month > type[0] && property.cost_per_month < type[1]) {
-					newList.push(property);
-				}
+		for (const property of propertyInfo) {
+			if (
+				property.cost_per_month >= filter.minPrice &&
+				property.cost_per_month <= filter.maxPrice &&
+				property.distance <= filter.maxDistance
+			) {
+				newList.push(property);
 			}
 		}
 		sortProperties(sortby, newList);
@@ -60,6 +59,10 @@ function PropertyListings() {
 
 	function changeMaxPrice(event) {
 		setMaxPrice(event.target.value);
+	}
+
+	function changeMaxDistance(event) {
+		setMaxDistance(event.target.value);
 	}
 
 	return user === null ? (
@@ -103,7 +106,11 @@ function PropertyListings() {
 					<form
 						onSubmit={(event) => {
 							event.preventDefault();
-							filterProperties([parseInt(minPrice), parseInt(maxPrice)]);
+							filterProperties({
+								minPrice: parseInt(minPrice),
+								maxPrice: parseInt(maxPrice),
+								maxDistance: parseInt(maxDistance),
+							});
 						}}
 					>
 						<label htmlFor="minPrice">Min Price</label>
@@ -119,6 +126,13 @@ function PropertyListings() {
 							type="number"
 							value={maxPrice}
 							onChange={changeMaxPrice}
+						/>
+						<label htmlFor="maxDistance">Max Distance</label>
+						<input
+							name="maxDistance"
+							type="number"
+							value={maxDistance}
+							onChange={changeMaxDistance}
 						/>
 						<input type="submit" value="Submit" />
 					</form>
