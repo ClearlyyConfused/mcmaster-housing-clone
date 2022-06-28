@@ -7,6 +7,7 @@ function DisplayProperty({ property }) {
 			<div className="property-info">
 				<h2>{property.location}</h2>
 				<p>{property.description}</p>
+				<h3>{property.date}</h3>
 				<h3>${property.cost_per_month}/month</h3>
 			</div>
 		</section>

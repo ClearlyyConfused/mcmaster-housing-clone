@@ -31,6 +31,7 @@ const propertyInfo = [
 		cost_per_month: 250,
 		distance: 10,
 		image: propertyImg1,
+		date: '2022-01-05',
 	},
 	{
 		location: 'Property 2',
@@ -39,6 +40,7 @@ const propertyInfo = [
 		cost_per_month: 670,
 		distance: 5,
 		image: propertyImg2,
+		date: '2022-05-23',
 	},
 	{
 		location: 'Exercitation incididunt tempor ea nulla id sint velit.',
@@ -47,6 +49,7 @@ const propertyInfo = [
 		cost_per_month: 800,
 		distance: 1,
 		image: propertyImg3,
+		date: '2022-04-27',
 	},
 	{
 		location: 'Property 4',
@@ -55,6 +58,7 @@ const propertyInfo = [
 		cost_per_month: 500,
 		distance: 5.4,
 		image: propertyImg2,
+		date: '2022-06-27',
 	},
 ];
 
