@@ -11,7 +11,7 @@ function PropertyListings() {
 	const [user] = useAuthState(auth);
 	const [propertyList, setPropertyList] = useState(propertyInfo);
 	const [sortby, setSortby] = useState('PRICE ^');
-	const [dropdown_active, setDropdownActive] = useState(false);
+	const [dropdown_active, setDropdownActive] = useState(true);
 
 	function sortProperties(type) {
 		let newList;
