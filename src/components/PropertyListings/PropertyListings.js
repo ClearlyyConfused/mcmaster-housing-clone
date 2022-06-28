@@ -65,6 +65,12 @@ function PropertyListings() {
 		setMaxDistance(event.target.value);
 	}
 
+	useEffect(() => {
+		let newList;
+		newList = [...propertyList].sort((a, b) => new Date(b.date) - new Date(a.date));
+		setPropertyList(newList);
+	}, []);
+
 	return user === null ? (
 		<Login />
 	) : (
@@ -104,6 +110,7 @@ function PropertyListings() {
 				<div className="filter-tab">
 					<h3>FILTER</h3>
 					<form
+						className="filter-items"
 						onSubmit={(event) => {
 							event.preventDefault();
 							filterProperties({
@@ -113,28 +120,40 @@ function PropertyListings() {
 							});
 						}}
 					>
-						<label htmlFor="minPrice">Min Price</label>
-						<input
-							name="minPrice"
-							type="number"
-							value={minPrice}
-							onChange={changeMinPrice}
-						/>
-						<label htmlFor="maxPrice">Max Price</label>
-						<input
-							name="maxPrice"
-							type="number"
-							value={maxPrice}
-							onChange={changeMaxPrice}
-						/>
-						<label htmlFor="maxDistance">Max Distance</label>
-						<input
-							name="maxDistance"
-							type="number"
-							value={maxDistance}
-							onChange={changeMaxDistance}
-						/>
-						<input type="submit" value="Submit" />
+						<div>
+							<label htmlFor="minPrice">Min Price</label>
+							<input
+								name="minPrice"
+								type="number"
+								value={minPrice}
+								onChange={changeMinPrice}
+								min="0"
+								max="3000"
+							/>
+						</div>
+						<div>
+							<label htmlFor="maxPrice">Max Price</label>
+							<input
+								name="maxPrice"
+								type="number"
+								value={maxPrice}
+								onChange={changeMaxPrice}
+								min="0"
+								max="3000"
+							/>
+						</div>
+						<div>
+							<label htmlFor="maxDistance">Max Distance</label>
+							<input
+								name="maxDistance"
+								type="number"
+								value={maxDistance}
+								onChange={changeMaxDistance}
+								min="0"
+								max="15"
+							/>
+						</div>
+						<input className="filter-submit" type="submit" value="Submit" />
 					</form>
 				</div>
 			</section>

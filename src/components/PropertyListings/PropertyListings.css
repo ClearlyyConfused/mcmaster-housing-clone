@@ -172,3 +172,18 @@
 	align-items: center;
 	justify-content: center;
 }
+
+.filter-items {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.filter-items div {
+	display: flex;
+	flex-direction: column;
+}
+
+.filter-submit:hover {
+	cursor: pointer;
+}
