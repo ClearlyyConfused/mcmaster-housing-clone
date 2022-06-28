@@ -14,28 +14,53 @@ function PropertyListings() {
 	const [propertyList, setPropertyList] = useState(propertyInfo);
 	const [sortby, setSortby] = useState('LATEST');
 
+	const [minPrice, setMinPrice] = useState(0);
+	const [maxPrice, setMaxPrice] = useState(1000);
+
 	const [dropdown_active, setNavDropdownActive] = useState(false);
 
-	function sortProperties(type) {
+	function sortProperties(type, list = propertyList) {
 		let newList;
 		if (type === 'PRICE ^') {
-			newList = [...propertyList].sort((a, b) => a.cost_per_month - b.cost_per_month);
+			newList = [...list].sort((a, b) => a.cost_per_month - b.cost_per_month);
 		}
 		if (type === 'PRICE v') {
-			newList = [...propertyList].sort((a, b) => b.cost_per_month - a.cost_per_month);
+			newList = [...list].sort((a, b) => b.cost_per_month - a.cost_per_month);
 		}
 		if (type === 'OLDEST') {
-			newList = [...propertyList].sort((a, b) => new Date(a.date) - new Date(b.date));
+			newList = [...list].sort((a, b) => new Date(a.date) - new Date(b.date));
 		}
 		if (type === 'LATEST') {
-			newList = [...propertyList].sort((a, b) => new Date(b.date) - new Date(a.date));
+			newList = [...list].sort((a, b) => new Date(b.date) - new Date(a.date));
 		}
 		setPropertyList(newList);
 	}
 
-	useEffect(() => {
-		sortProperties(sortby);
-	}, [sortby]);
+	function filterProperties(type) {
+		console.log(type);
+		if (type === 'NONE') {
+			setPropertyList(propertyInfo);
+			return;
+		}
+
+		let newList = [];
+		if (Array.isArray(type)) {
+			for (const property of propertyInfo) {
+				if (property.cost_per_month > type[0] && property.cost_per_month < type[1]) {
+					newList.push(property);
+				}
+			}
+		}
+		sortProperties(sortby, newList);
+	}
+
+	function changeMinPrice(event) {
+		setMinPrice(event.target.value);
+	}
+
+	function changeMaxPrice(event) {
+		setMaxPrice(event.target.value);
+	}
 
 	return user === null ? (
 		<Login />
@@ -54,24 +79,50 @@ function PropertyListings() {
 							className={`sortby-dropdown-items sortby-dropdown-active-${dropdown_active}`}
 						>
 							{/* prettier-ignore */}
-							<h4 onClick={() => {setSortby('PRICE ^');}}>
+							<h4 onClick={() => {setSortby('PRICE ^'); sortProperties("PRICE ^")}}>
 								PRICE ^
 							</h4>
 							{/* prettier-ignore */}
-							<h4 onClick={() => {setSortby('PRICE v');}}>
+							<h4 onClick={() => {setSortby('PRICE v'); sortProperties("PRICE v")}}>
 								PRICE v
 							</h4>
 							{/* prettier-ignore */}
-							<h4 onClick={() => {setSortby('LATEST');}}>
+							<h4 onClick={() => {setSortby('LATEST'); sortProperties("LATEST")}}>
 							LATEST
 							</h4>
 							{/* prettier-ignore */}
-							<h4 onClick={() => {setSortby('OLDEST');}}>
+							<h4 onClick={() => {setSortby('OLDEST'); sortProperties("OLDEST")}}>
 							OLDEST
 							</h4>
 						</div>
 					</div>
 				</h3>
+
+				<div className="filter-tab">
+					<h3>FILTER</h3>
+					<form
+						onSubmit={(event) => {
+							event.preventDefault();
+							filterProperties([parseInt(minPrice), parseInt(maxPrice)]);
+						}}
+					>
+						<label htmlFor="minPrice">Min Price</label>
+						<input
+							name="minPrice"
+							type="number"
+							value={minPrice}
+							onChange={changeMinPrice}
+						/>
+						<label htmlFor="maxPrice">Max Price</label>
+						<input
+							name="maxPrice"
+							type="number"
+							value={maxPrice}
+							onChange={changeMaxPrice}
+						/>
+						<input type="submit" value="Submit" />
+					</form>
+				</div>
 			</section>
 			<section className="property-listings">
 				{propertyList.map((property) => {

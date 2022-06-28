@@ -52,7 +52,7 @@
 }
 
 .sortby-title:hover,
-.dropdown-active-true:hover {
+.sortby-dropdown-active-true:hover {
 	cursor: pointer;
 }
 
@@ -162,4 +162,13 @@
 .property-sub-info h3:first-child {
 	margin-left: 0;
 	margin-right: auto;
+}
+
+/*//////////////////////////////////////////////////*/
+
+.filter-tab {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
