@@ -9,10 +9,10 @@
 /*//////////////////////////////////////////////////*/
 
 .sortby-tab {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
+	width: fit-content;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .sortby-title {
@@ -21,7 +21,7 @@
 
 	padding: 12px 20px;
 	background-color: #7a003c;
-	width: 60px;
+	width: 130px;
 }
 
 .sortby-dropdown-active-true,
@@ -36,6 +36,7 @@
 	padding: 0px 20px;
 
 	height: 0px;
+	width: 130px;
 	overflow: hidden;
 	text-align: center;
 	gap: 10px;
@@ -45,8 +46,7 @@
 
 .sortby-dropdown-active-true {
 	position: absolute;
-	height: 150px;
-	width: 60px;
+	height: 130px;
 }
 
 .sortby-title:hover,
@@ -96,9 +96,20 @@
 		flex-direction: column;
 	}
 	.sortby-title {
-		padding: 12px 15px;
+		min-width: 80px;
+		max-width: 108px;
+		width: 20vw;
+		padding: 12px 5px;
+		text-align: center;
 	}
-	.sortby-dropdown-items {
-		padding: 0 15px;
+	.sortby-dropdown-active-true,
+	.sortby-dropdown-active-false {
+		min-width: 80px;
+		max-width: 108px;
+		padding: 12px 5px;
+		width: 20vw;
+	}
+	.sortby-dropdown-active-false {
+		padding: 0px 5px;
 	}
 }

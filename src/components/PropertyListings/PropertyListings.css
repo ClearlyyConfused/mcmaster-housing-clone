@@ -7,6 +7,8 @@
 	flex-wrap: wrap;
 	gap: 10px;
 	padding: 20px;
+
+	background-color: #f0f0f0;
 }
 
 /*//////////////////////////////////////////////////*/
@@ -20,6 +22,8 @@
 
 	border: 1px solid gray;
 	box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+	background-color: white;
+
 	transition: all 1s;
 	overflow: hidden;
 }
@@ -84,24 +88,21 @@
 
 .property-sub-info {
 	display: flex;
+	flex-direction: column;
 	color: #5d6a72;
 	font-size: 12px;
+	margin-top: 10px;
+	gap: 5px;
 }
 
 .property-sub-info h3 {
 	margin: 0;
-	padding: 10px 0px;
 	margin-left: auto;
 	width: fit-content;
 }
 
 .property-display:hover .property-sub-info {
 	color: #dce0e2;
-}
-
-.property-sub-info h3:first-child {
-	margin-left: 0;
-	margin-right: auto;
 }
 
 /*//////////////////////////////////////////////////*/

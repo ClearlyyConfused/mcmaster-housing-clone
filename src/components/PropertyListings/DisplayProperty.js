@@ -8,9 +8,9 @@ function DisplayProperty({ property }) {
 				<h2>{property.location}</h2>
 				<p>{property.description}</p>
 				<div className="property-sub-info">
-					<h3>{property.date}</h3>
-					<h3>{property.distance}</h3>
 					<h3>${property.cost_per_month}/month</h3>
+					<h3>{property.distance} km from McMaster</h3>
+					<h3>Posted on {property.date}</h3>
 				</div>
 			</div>
 		</section>
