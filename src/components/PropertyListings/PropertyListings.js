@@ -7,7 +7,7 @@ import './PropertyListings.css';
 import Login from '../Login';
 import { propertyInfo } from '../Data';
 import DisplayProperty from './DisplayProperty';
-import PropertySidebar from './PropertySidebar';
+import PropertySidebar from './PropertySidebar/PropertySidebar';
 
 function PropertyListings() {
 	const [user] = useAuthState(auth);

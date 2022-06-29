@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import './PropertySidebar.css';
 import PropertySort from './PropertySort';
 import PropertyFilter from './PropertyFilter';
 
