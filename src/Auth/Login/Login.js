@@ -1,5 +1,5 @@
 import firebase from 'firebase/compat/app';
-import { auth } from '../Firebase';
+import { auth } from '../../Firebase';
 import './Login.css';
 
 function Login() {

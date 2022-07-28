@@ -1,4 +1,4 @@
-import CallToAction from './CallToAction';
+import CallToAction from '../../components/CallToAction/CallToAction';
 import './Homepage.css';
 import sectionImg1 from '../../images/sectionImg1.png';
 import sectionImg2 from '../../images/sectionImg2.jpg';

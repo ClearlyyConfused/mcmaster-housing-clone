@@ -1,6 +1,6 @@
 import { auth } from '../../Firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Login from '../Login';
+import Login from '../../Auth/Login/Login';
 import './PostAnAd.css';
 
 function PostAnAd() {

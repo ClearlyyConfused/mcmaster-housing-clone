@@ -1,8 +1,8 @@
 import Header from './components/Header/Header';
-import Homepage from './components/Homepage/Homepage';
-import Footer from './components/Footer';
-import PostAnAd from './components/PostAnAd/PostAnAd';
-import PropertyListings from './components/PropertyListings/PropertyListings';
+import Homepage from './Pages/Homepage/Homepage';
+import Footer from './components/Footer/Footer';
+import PostAnAd from './Pages/PostAnAd/PostAnAd';
+import PropertyListings from './Pages/PropertyListingPage/PropertyListings';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {

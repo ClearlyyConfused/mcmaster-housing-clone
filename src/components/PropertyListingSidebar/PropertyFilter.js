@@ -1,4 +1,4 @@
-import { propertyInfo } from '../../Data';
+import { propertyInfo } from '../Data';
 import { useState } from 'react';
 
 function PropertyFilter({ sortProperties, sortby }) {

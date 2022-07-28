@@ -1,10 +1,10 @@
 import './Footer.css';
-import Logo from '../images/McMasterBrighterWorldLogo.png';
-import Instagram from '../images/instagram.svg';
-import Twitter from '../images/twitter.svg';
-import Facebook from '../images/facebook.svg';
-import Youtube from '../images/youtube.svg';
-import Linkedin from '../images/linkedin.svg';
+import Logo from '../../images/McMasterBrighterWorldLogo.png';
+import Instagram from '../../images/instagram.svg';
+import Twitter from '../../images/twitter.svg';
+import Facebook from '../../images/facebook.svg';
+import Youtube from '../../images/youtube.svg';
+import Linkedin from '../../images/linkedin.svg';
 
 function Footer() {
 	return (

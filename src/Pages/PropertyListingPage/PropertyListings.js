@@ -4,10 +4,10 @@ import { auth } from '../../Firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import './PropertyListings.css';
-import Login from '../Login';
-import { propertyInfo } from '../Data';
+import Login from '../../Auth/Login/Login';
+import { propertyInfo } from '../../components/Data';
 import DisplayProperty from './DisplayProperty';
-import PropertySidebar from './PropertySidebar/PropertySidebar';
+import PropertySidebar from '../../components//PropertyListingSidebar/PropertySidebar';
 
 function PropertyListings() {
 	const [user] = useAuthState(auth);
