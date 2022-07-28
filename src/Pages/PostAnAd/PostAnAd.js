@@ -1,16 +1,13 @@
-import { auth } from '../../Firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import Login from '../../Auth/Login/Login';
+import CheckLogin from '../../Auth/CheckLogin';
+import Login from '../../Auth/Login/LoginPage';
 import './PostAnAd.css';
 
 function PostAnAd() {
-	const [user] = useAuthState(auth);
+	const user = CheckLogin()[0];
 
-	if (user === null) {
-		return <Login />;
-	}
-
-	return (
+	return user === null ? (
+		<Login />
+	) : (
 		<main className="post-an-ad">
 			<main className="post-an-ad-error">
 				<h3>ACCESS DENIED</h3>

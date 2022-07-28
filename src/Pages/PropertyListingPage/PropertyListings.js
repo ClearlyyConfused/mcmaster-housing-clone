@@ -1,16 +1,15 @@
+import './PropertyListings.css';
 import { useState, useEffect } from 'react';
 
-import { auth } from '../../Firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
-
-import './PropertyListings.css';
-import Login from '../../Auth/Login/Login';
+import CheckLogin from '../../Auth/CheckLogin';
 import { propertyInfo } from '../../components/Data';
-import DisplayProperty from './DisplayProperty';
+
+import Login from '../../Auth/Login/LoginPage';
 import PropertySidebar from '../../components//PropertyListingSidebar/PropertySidebar';
+import DisplayProperty from './DisplayProperty';
 
 function PropertyListings() {
-	const [user] = useAuthState(auth);
+	const user = CheckLogin()[0];
 	const [propertyList, setPropertyList] = useState(propertyInfo);
 
 	useEffect(() => {

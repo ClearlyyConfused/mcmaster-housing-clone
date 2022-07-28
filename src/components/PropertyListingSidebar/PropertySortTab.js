@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import sortProperties from './sortProperties';
 
-function PropertySort({ sortProperties, sortby, setSortby }) {
+function PropertySort({ sortby, setSortby, propertyList, setPropertyList }) {
 	const [dropdown_active, setNavDropdownActive] = useState(false);
 	return (
 		<div
@@ -12,19 +13,19 @@ function PropertySort({ sortProperties, sortby, setSortby }) {
 			<div className="sortby-title">SORT BY {sortby}</div>
 			<div className={`sortby-dropdown-items sortby-dropdown-active-${dropdown_active}`}>
 				{/* prettier-ignore */}
-				<h4 onClick={() => {setSortby('PRICE ^'); sortProperties("PRICE ^")}}>
+				<h4 onClick={() => {setSortby('PRICE ^'); sortProperties("PRICE ^", propertyList, setPropertyList)}}>
 								PRICE ^
 							</h4>
 				{/* prettier-ignore */}
-				<h4 onClick={() => {setSortby('PRICE v'); sortProperties("PRICE v")}}>
+				<h4 onClick={() => {setSortby('PRICE v'); sortProperties("PRICE v" , propertyList, setPropertyList)}}>
 								PRICE v
 							</h4>
 				{/* prettier-ignore */}
-				<h4 onClick={() => {setSortby('LATEST'); sortProperties("LATEST")}}>
+				<h4 onClick={() => {setSortby('LATEST'); sortProperties("LATEST", propertyList, setPropertyList)}}>
 							LATEST
 							</h4>
 				{/* prettier-ignore */}
-				<h4 onClick={() => {setSortby('OLDEST'); sortProperties("OLDEST")}}>
+				<h4 onClick={() => {setSortby('OLDEST'); sortProperties("OLDEST", propertyList, setPropertyList)}}>
 							OLDEST
 							</h4>
 			</div>

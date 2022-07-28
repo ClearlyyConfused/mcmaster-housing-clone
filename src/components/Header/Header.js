@@ -1,59 +1,31 @@
 import './Header.css';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import firebase from 'firebase/compat/app';
-import { auth } from '../../Firebase';
-import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { auth } from '../../Auth/Firebase';
+
 import HeaderBanner from './HeaderBanner';
 import HeaderNavBtn from './HeaderNavBtn';
 import HeaderDropDown from './HeaderDropdown';
 
+import CheckLogin from '../../Auth/CheckLogin';
+import SignInFunction from '../../Auth/SignIn';
+import ViewWidth from '../../Helper/ViewWidth';
+import CurrentPage from '../../Helper/CurrentPage';
+
 function Header() {
-	const [user] = useAuthState(auth);
-	const [viewWidth, setViewWidth] = useState(window.innerWidth);
+	const user = CheckLogin()[0];
+	const SignIn = SignInFunction();
+	const viewWidth = ViewWidth();
+	const [currentPage, setCurrentPage] = useState(CurrentPage());
 
-	useEffect(() => {
-		const handleResize = () => {
-			setViewWidth(window.innerWidth);
-		};
-
-		window.addEventListener('resize', handleResize);
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, []);
-
-	function signIn() {
-		const provider = new firebase.auth.GoogleAuthProvider();
-		auth.signInWithPopup(provider);
-	}
-
-	let startingPage = useLocation().pathname;
-	if (startingPage === '/') {
-		startingPage = 'HOME';
-	} else if (startingPage === '/post-a-property') {
-		startingPage = 'POST AD';
-	} else if (startingPage === '/available-properties') {
-		startingPage = 'AVAILABLE PROPERTIES';
-	}
-
-	const [currentPage, setCurrentPage] = useState(startingPage);
-
-	if (viewWidth < 600) {
-		return (
-			<header className="Header">
-				<HeaderBanner />
-				<HeaderDropDown currentPage={currentPage} setCurrentPage={setCurrentPage} />
-			</header>
-		);
-	}
-
-	return (
+	return viewWidth < 600 ? (
 		<header className="Header">
 			<HeaderBanner />
-
+			<HeaderDropDown currentPage={currentPage} setCurrentPage={setCurrentPage} />
+		</header>
+	) : (
+		<header className="Header">
+			<HeaderBanner />
 			<nav className="HeaderNav">
 				<Link to="/">
 					<HeaderNavBtn
@@ -76,9 +48,8 @@ function Header() {
 						currentPage={currentPage}
 					/>
 				</Link>
-
 				{user === null ? (
-					<button className="loginBtn" onClick={signIn}>
+					<button className="loginBtn" onClick={SignIn}>
 						<span className="headerText">LOGIN</span>
 					</button>
 				) : (

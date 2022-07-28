@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { callToActionInfo } from '../Data';
+import './callToAction.css';
 
 function CallToAction() {
 	const [currentDisplay, setCurrentDisplay] = useState(0);
-	const [x, setX] = useState(0);
+	const [displayDirection, setDisplayDirection] = useState('forward');
 
 	function changeDisplayForward() {
-		setX(0);
+		setDisplayDirection('forward');
 		if (currentDisplay + 1 === callToActionInfo.length) {
 			setCurrentDisplay(0);
 		} else {
@@ -15,7 +16,7 @@ function CallToAction() {
 	}
 
 	function changeDisplayBackwards() {
-		setX(1);
+		setDisplayDirection('backwards');
 		if (currentDisplay - 1 === -1) {
 			setCurrentDisplay(callToActionInfo.length - 1);
 		} else {
@@ -31,17 +32,7 @@ function CallToAction() {
 	});
 
 	return (
-		<div>
-			{callToActionInfo.map((info, index) => {
-				return infoDisplayFirst(
-					info,
-					currentDisplay,
-					index,
-					changeDisplayBackwards,
-					changeDisplayForward,
-					x
-				);
-			})}
+		<div className="call-to-action-container">
 			{callToActionInfo.map((info, index) => {
 				return infoDisplay(
 					info,
@@ -49,35 +40,11 @@ function CallToAction() {
 					index,
 					changeDisplayBackwards,
 					changeDisplayForward,
-					x
+					displayDirection
 				);
 			})}
 		</div>
 	);
-}
-
-function infoDisplayFirst(
-	info,
-	currentDisplay,
-	index,
-	changeDisplayBackwards,
-	changeDisplayForward,
-	x
-) {
-	const classVer = x === 0 ? 'CallToActionF' : 'CallToActionB';
-	if (currentDisplay === index) {
-		return (
-			<section className={classVer}>
-				<button onClick={changeDisplayBackwards}>&lt;</button>
-				<div className="CallToActionInfo">
-					<h3>{info.title}</h3>
-					<p>{info.description}</p>
-					<button className="ContactBtn">{info.contact}</button>
-				</div>
-				<button onClick={changeDisplayForward}>&gt;</button>
-			</section>
-		);
-	}
 }
 
 function infoDisplay(
@@ -86,13 +53,16 @@ function infoDisplay(
 	index,
 	changeDisplayBackwards,
 	changeDisplayForward,
-	x
+	displayDirection
 ) {
+	let classVer;
 	if (currentDisplay === index) {
-		return null;
+		classVer = displayDirection === 'forward' ? 'CallToActionF' : 'CallToActionB';
+	} else {
+		classVer =
+			displayDirection === 'forward' ? 'CallToActionInactiveF' : 'CallToActionInactiveB';
 	}
 
-	const classVer = x === 0 ? 'CallToActionInactiveF' : 'CallToActionInactiveB';
 	return (
 		<section className={classVer}>
 			<button onClick={changeDisplayBackwards}>&lt;</button>

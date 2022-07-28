@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import firebase from 'firebase/compat/app';
-import { auth } from '../../Firebase';
+import { auth } from '../../Auth/Firebase';
+import CheckLogin from '../../Auth/CheckLogin';
+import SignInFunction from '../../Auth/SignIn';
 
 function HeaderDropDown({ currentPage, setCurrentPage }) {
-	const [user] = useAuthState(auth);
-	function signIn() {
-		const provider = new firebase.auth.GoogleAuthProvider();
-		auth.signInWithPopup(provider);
-	}
+	const user = CheckLogin()[0];
+	const SignIn = SignInFunction();
 
 	const [display, setDisplay] = useState(false);
 
@@ -54,7 +51,7 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 				</Link>
 				
 				{user === null ? (
-					<button className="loginBtn" onClick={signIn}>
+					<button className="loginBtn" onClick={SignIn}>
 						<span className="headerText">LOGIN</span>
 					</button>
 				) : (

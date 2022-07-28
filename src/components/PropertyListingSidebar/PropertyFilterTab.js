@@ -1,7 +1,8 @@
 import { propertyInfo } from '../Data';
 import { useState } from 'react';
+import sortProperties from './sortProperties';
 
-function PropertyFilter({ sortProperties, sortby }) {
+function PropertyFilter({ sortby, setPropertyList }) {
 	const [minPrice, setMinPrice] = useState(0);
 	const [maxPrice, setMaxPrice] = useState(1000);
 	const [maxDistance, setMaxDistance] = useState(10);
@@ -19,8 +20,6 @@ function PropertyFilter({ sortProperties, sortby }) {
 	}
 
 	function filterProperties(filter) {
-		console.log(filter);
-
 		let newList = [];
 		for (const property of propertyInfo) {
 			if (
@@ -31,7 +30,7 @@ function PropertyFilter({ sortProperties, sortby }) {
 				newList.push(property);
 			}
 		}
-		sortProperties(sortby, newList);
+		sortProperties(sortby, newList, setPropertyList);
 	}
 
 	return (
