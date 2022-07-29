@@ -2,7 +2,10 @@ function DisplayProperty({ property }) {
 	return (
 		<section className="property-display">
 			<div className="property-img-container">
-				<img src={property.image} alt="" />
+				<img
+					src={`https://offcampus-mcmaster-api.herokuapp.com${property.propertyImage}`}
+					alt=""
+				/>
 			</div>
 			<div className="property-info">
 				<h2>{property.location}</h2>

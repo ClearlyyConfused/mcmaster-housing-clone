@@ -4,7 +4,7 @@ import './PropertySidebar.css';
 import PropertySort from './PropertySortTab';
 import PropertyFilter from './PropertyFilterTab';
 
-function PropertySidebar({ propertyList, setPropertyList }) {
+function PropertySidebar({ propertyList, setPropertyList, allPropertyList }) {
 	const [sortby, setSortby] = useState('LATEST');
 	return (
 		<section className="property-side-bar">
@@ -14,7 +14,11 @@ function PropertySidebar({ propertyList, setPropertyList }) {
 				sortby={sortby}
 				setSortby={setSortby}
 			/>
-			<PropertyFilter sortby={sortby} setPropertyList={setPropertyList} />
+			<PropertyFilter
+				sortby={sortby}
+				setPropertyList={setPropertyList}
+				allPropertyList={allPropertyList}
+			/>
 		</section>
 	);
 }

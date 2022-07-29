@@ -1,8 +1,7 @@
-import { propertyInfo } from '../Data';
 import { useState } from 'react';
 import sortProperties from './sortProperties';
 
-function PropertyFilter({ sortby, setPropertyList }) {
+function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
 	const [minPrice, setMinPrice] = useState(0);
 	const [maxPrice, setMaxPrice] = useState(1000);
 	const [maxDistance, setMaxDistance] = useState(10);
@@ -21,7 +20,7 @@ function PropertyFilter({ sortby, setPropertyList }) {
 
 	function filterProperties(filter) {
 		let newList = [];
-		for (const property of propertyInfo) {
+		for (const property of allPropertyList) {
 			if (
 				property.cost_per_month >= filter.minPrice &&
 				property.cost_per_month <= filter.maxPrice &&
