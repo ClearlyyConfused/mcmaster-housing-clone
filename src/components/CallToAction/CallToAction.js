@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { callToActionInfo } from '../Data';
+import { callToActionInfo } from '../../Data';
 import './callToAction.css';
 
 function CallToAction() {

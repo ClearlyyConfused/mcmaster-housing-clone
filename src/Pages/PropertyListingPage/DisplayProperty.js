@@ -5,6 +5,7 @@ function DisplayProperty({ property }) {
 				<img
 					src={`https://offcampus-mcmaster-api.herokuapp.com${property.propertyImage}`}
 					alt=""
+					loading="lazy"
 				/>
 			</div>
 			<div className="property-info">

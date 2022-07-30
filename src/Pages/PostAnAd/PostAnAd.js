@@ -16,7 +16,6 @@ function PostAnAd() {
 					permissions to post an ad. If you think this is a mistake, contact the main
 					office.
 				</p>
-				<button>RETURN TO HOMEPAGE</button>
 			</main>
 		</main>
 	);
