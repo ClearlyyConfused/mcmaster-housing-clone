@@ -30,6 +30,12 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 				<button onClick={() => {setDisplay(true);}}>AVAILABLE PROPERTIES</button>
 			</Link>
 		);
+	} else if (currentPage === 'MOBILE VIEW') {
+		headerTop = (
+			<Link to="mobile-view">
+				<button onClick={() => {setDisplay(true);}}>MOBILE VIEW</button>
+			</Link>
+		);
 	}
 
 	return (
@@ -47,6 +53,11 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 				<Link to="available-properties">
 					<button onClick={() => {setCurrentPage('AVAILABLE PROPERTIES');}}>
 						AVAILABLE PROPERTIES
+					</button>
+				</Link>
+				<Link to="mobile-view">
+					<button onClick={() => {setCurrentPage('MOBILE VIEW');}}>
+						MOBILE VIEW
 					</button>
 				</Link>
 				

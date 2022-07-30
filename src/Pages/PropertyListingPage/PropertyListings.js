@@ -11,6 +11,7 @@ function PropertyListings() {
 	const user = CheckLogin()[0];
 	const [propertyList, setPropertyList] = useState([]);
 	const [allPropertyList, setAllPropertyList] = useState([]);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		fetch('https://offcampus-mcmaster-api.herokuapp.com/property')
@@ -19,26 +20,31 @@ function PropertyListings() {
 				data.sort((a, b) => new Date(b.date) - new Date(a.date));
 				setPropertyList(data);
 				setAllPropertyList(data);
+				setLoading(false);
 			});
 	}, []);
 
-	return user === null ? (
-		<Login />
-	) : (
-		<main className="property-listing-page">
-			<PropertySidebar
-				propertyList={propertyList}
-				setPropertyList={setPropertyList}
-				allPropertyList={allPropertyList}
-			/>
+	if (user === null) {
+		return <Login />;
+	} else if (loading) {
+		return <div>Loading...</div>;
+	} else {
+		return (
+			<main className="property-listing-page">
+				<PropertySidebar
+					propertyList={propertyList}
+					setPropertyList={setPropertyList}
+					allPropertyList={allPropertyList}
+				/>
 
-			<section className="property-listings">
-				{propertyList.map((property) => {
-					return <DisplayProperty property={property} />;
-				})}
-			</section>
-		</main>
-	);
+				<section className="property-listings">
+					{propertyList.map((property) => {
+						return <DisplayProperty property={property} />;
+					})}
+				</section>
+			</main>
+		);
+	}
 }
 
 export default PropertyListings;

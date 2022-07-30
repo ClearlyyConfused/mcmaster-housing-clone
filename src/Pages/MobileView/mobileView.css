@@ -1,0 +1,28 @@
+.mobile-view-page {
+	padding: 50px 10px;
+	gap: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+iframe {
+	border: 5px solid black;
+	border-radius: 30px;
+}
+
+.iframeLarge {
+	height: 700px;
+	width: 425px;
+}
+
+.iframeMedium {
+	height: 600px;
+	width: 375px;
+}
+
+.iframeSmall {
+	height: 500px;
+	width: 320px;
+}
