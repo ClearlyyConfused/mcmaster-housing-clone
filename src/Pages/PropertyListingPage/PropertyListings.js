@@ -11,7 +11,7 @@ function PropertyListings() {
 	const user = CheckLogin()[0];
 	const [propertyList, setPropertyList] = useState([]);
 	const [allPropertyList, setAllPropertyList] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		fetch('https://offcampus-mcmaster-api.herokuapp.com/property')
@@ -26,8 +26,6 @@ function PropertyListings() {
 
 	if (user === null) {
 		return <Login />;
-	} else if (loading) {
-		return <div>Loading...</div>;
 	} else {
 		return (
 			<main className="property-listing-page">
@@ -38,9 +36,13 @@ function PropertyListings() {
 				/>
 
 				<section className="property-listings">
-					{propertyList.map((property) => {
-						return <DisplayProperty property={property} />;
-					})}
+					{loading ? (
+						<div>Loading...</div>
+					) : (
+						propertyList.map((property) => {
+							return <DisplayProperty property={property} />;
+						})
+					)}
 				</section>
 			</main>
 		);
