@@ -83,7 +83,6 @@
 .CallToActionF,
 .CallToActionB {
 	display: flex;
-	height: fit-content;
 	background-color: colors.$main-yellow;
 	padding: 25px 10px;
 	gap: 10px;
@@ -96,11 +95,11 @@
 }
 
 .CallToActionF {
-	animation: slideInF 1s;
+	animation: slideInF 1.25s;
 }
 
 .CallToActionB {
-	animation: slideInB 1s;
+	animation: slideInB 1.25s;
 }
 
 @keyframes slideInF {
@@ -141,7 +140,6 @@
 	overflow: hidden;
 
 	* {
-		opacity: 0;
 		transition: all 0s !important;
 	}
 }
@@ -149,26 +147,22 @@
 @keyframes slideOutF {
 	0% {
 		right: 0;
-		opacity: 1;
-		padding: 25px 15px;
+		opacity: 0;
 	}
 	100% {
 		right: 2000px;
 		opacity: 0;
-		padding: 25px 15px;
 	}
 }
 
 @keyframes slideOutB {
 	0% {
 		left: 0;
-		opacity: 1;
-		padding: 25px 15px;
+		opacity: 0;
 	}
 	100% {
 		left: 2000px;
 		opacity: 0;
-		padding: 25px 15px;
 	}
 }
 
