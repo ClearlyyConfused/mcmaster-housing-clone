@@ -48,13 +48,6 @@ function Header() {
 						currentPage={currentPage}
 					/>
 				</Link>
-				<Link to="mobile-view">
-					<HeaderNavBtn
-						buttonName="MOBILE VIEW"
-						setCurrentPage={setCurrentPage}
-						currentPage={currentPage}
-					/>
-				</Link>
 				{user === null ? (
 					<button className="loginBtn" onClick={SignIn}>
 						<span className="headerText">LOGIN</span>
