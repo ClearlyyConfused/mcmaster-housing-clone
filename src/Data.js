@@ -12,10 +12,10 @@ const callToActionInfo = [
 		contact: 'LEARN MORE',
 	},
 	{
-		title: 'EXCEPTEUR ALIQUA EXERCITATION EXERCITATION CULPA.',
+		title: 'BE A GOOD NEIGHBOUR CAMPAIGN',
 		description:
-			'Qui ex laborum minim sit occaecat ad consectetur incididunt voluptate adipisicing. Dolore sunt elit enim ad ea ea sint duis veniam quis. Id minim dolore id ullamco anim eiusmod reprehenderit. Id esse do id est non. ',
-		contact: 'LOREM IPSUM.',
+			'This fall, McMaster’s Good Neighbour campaign is welcoming students to the surrounding community and encourage positive neighbourly interactions.',
+		contact: 'LEARN MORE',
 	},
 ];
 
