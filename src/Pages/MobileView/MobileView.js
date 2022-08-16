@@ -9,19 +9,19 @@ function MobileView() {
 			<iframe
 				title="Large mobile display of website"
 				className="iframeLarge"
-				src="https://offcampus-mcmaster.web.app/"
+				src="https://offcampus-mcmaster-clone.netlify.app/"
 				frameborder="0"
 			></iframe>
 			<iframe
 				title="Medium mobile display of website"
 				className="iframeMedium"
-				src="https://offcampus-mcmaster.web.app/"
+				src="https://offcampus-mcmaster-clone.netlify.app/"
 				frameborder="0"
 			></iframe>
 			<iframe
 				title="Small mobile display of website"
 				className="iframeSmall"
-				src="https://offcampus-mcmaster.web.app/"
+				src="https://offcampus-mcmaster-clone.netlify.app/"
 				frameborder="0"
 			></iframe>
 		</div>
