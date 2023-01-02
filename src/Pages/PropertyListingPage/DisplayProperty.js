@@ -3,7 +3,7 @@ function DisplayProperty({ property }) {
 		<section className="property-display">
 			<div className="property-img-container">
 				<img
-					src={`https://offcampus-mcmaster-api.herokuapp.com${property.propertyImage}`}
+					src={`https://mcmaster-housing-clone-api.onrender.com${property.propertyImage}`}
 					alt=""
 					loading="lazy"
 				/>
