@@ -14,7 +14,7 @@ function PropertyListings() {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetch('https://mcmaster-housing-clone-api.onrender.com/property')
+		fetch('https://mcmaster-housing-clone-api.vercel.app/property')
 			.then((response) => response.json())
 			.then((data) => {
 				data.sort((a, b) => new Date(b.date) - new Date(a.date));
