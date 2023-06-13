@@ -1,12 +1,9 @@
 function DisplayProperty({ property }) {
 	return (
 		<section className="property-display">
+			{console.log(property)}
 			<div className="property-img-container">
-				<img
-					src={`https://mcmaster-housing-clone-api.onrender.com${property.propertyImage}`}
-					alt=""
-					loading="lazy"
-				/>
+				<img src={property.propertyImage} alt="" loading="lazy" />
 			</div>
 			<div className="property-info">
 				<h2>{property.location}</h2>
