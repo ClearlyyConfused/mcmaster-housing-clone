@@ -17,6 +17,7 @@ function PropertyListings() {
 		fetch('https://mcmaster-housing-clone-api.vercel.app/property')
 			.then((response) => response.json())
 			.then((data) => {
+				console.log(data);
 				data.sort((a, b) => new Date(b.date) - new Date(a.date));
 				setPropertyList(data);
 				setAllPropertyList(data);
