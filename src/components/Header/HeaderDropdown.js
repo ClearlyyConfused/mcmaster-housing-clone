@@ -55,11 +55,6 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 						AVAILABLE PROPERTIES
 					</button>
 				</Link>
-				<Link to="mobile-view">
-					<button onClick={() => {setCurrentPage('MOBILE VIEW');}}>
-						MOBILE VIEW
-					</button>
-				</Link>
 				
 				{user === null ? (
 					<button className="loginBtn" onClick={SignIn}>

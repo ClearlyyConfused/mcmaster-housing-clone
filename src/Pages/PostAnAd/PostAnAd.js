@@ -35,7 +35,6 @@ function PostAnAd() {
 
 			fetch('https://mcmaster-housing-clone-api.vercel.app/newProperty', reqOptions).then((res) =>
 				res.json().then((data) => {
-					console.log(data);
 					event.target.elements.message.value = '';
 					event.target.elements.image.value = '';
 				})

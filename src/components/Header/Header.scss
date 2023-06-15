@@ -44,8 +44,7 @@
 	img {
 		width: 40px;
 		height: auto;
-		filter: invert(40%) sepia(6%) saturate(909%) hue-rotate(158deg) brightness(97%)
-			contrast(86%);
+		filter: invert(40%) sepia(6%) saturate(909%) hue-rotate(158deg) brightness(97%) contrast(86%);
 	}
 }
 
@@ -139,7 +138,7 @@ button.loginBtn {
 }
 
 .nav-dropdown-active-true {
-	height: 300px;
+	height: 250px;
 	overflow: hidden;
 	transition: all 0.5s;
 }

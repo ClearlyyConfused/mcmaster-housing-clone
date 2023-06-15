@@ -1,7 +1,6 @@
-function DisplayProperty({ property }) {
+function DisplayProperty({ property, setDisplayedProperty }) {
 	return (
-		<section className="property-display">
-			{console.log(property)}
+		<section className="property-display" onClick={() => setDisplayedProperty(property)}>
 			<div className="property-img-container">
 				<img src={property.propertyImage} alt="" loading="lazy" />
 			</div>
