@@ -1,7 +1,19 @@
+@use '../../Variables/colors';
+
 .post-an-ad {
 	height: 100%;
-	padding: 30px;
+	padding: 30px 20px;
 
+	button {
+		background-color: #7a003c;
+		color: white;
+		height: 50px;
+		width: 150px;
+		border-radius: 30px;
+		font-weight: bold;
+		font-size: 20px;
+		border: 0px;
+	}
 	form {
 		background-color: #efefef;
 		padding: 20px;
@@ -12,8 +24,68 @@
 		}
 		.form-inputs {
 			display: flex;
-			gap: 15px;
+			gap: 50px;
 			flex-wrap: wrap;
+
+			// labels grouped with input
+			div {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+
+				input {
+					border-radius: 24px;
+					height: 25px;
+					border: 1px solid #93939a;
+					padding: 0px 10px;
+					font-size: 16px;
+					min-height: 40px;
+					box-sizing: border-box;
+				}
+
+				.dropdown:hover {
+					cursor: pointer;
+				}
+				.dropdown {
+					border: 1px solid #93939a;
+					border-radius: 24px;
+					background-color: white;
+					padding: 0px 5px;
+					box-sizing: border-box;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					min-height: 40px;
+					font-size: 16px;
+				}
+
+				#date_available:hover {
+					cursor: pointer;
+				}
+				#image {
+					line-height: 40px;
+					width: 240px;
+					background-color: white;
+				}
+				#image:hover,
+				input[type='file'] {
+					cursor: pointer;
+				}
+			}
+			.description-input {
+				width: 100%;
+				textarea {
+					min-height: 150px;
+					max-height: 150px;
+					min-width: 100%;
+					max-width: 100%;
+					border-radius: 5px;
+					height: 25px;
+					border: 1px solid #93939a;
+					padding: 10px;
+					box-sizing: border-box;
+					font-size: 16px;
+				}
+			}
 		}
 	}
 }

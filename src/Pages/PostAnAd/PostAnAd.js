@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import CheckLogin from '../../Auth/CheckLogin';
 import Login from '../../Auth/Login/LoginPage';
 import './PostAnAd.css';
@@ -34,6 +35,7 @@ function PostAnAd() {
 
 			fetch('https://mcmaster-housing-clone-api.vercel.app/newProperty', reqOptions).then((res) =>
 				res.json().then((data) => {
+					console.log(data);
 					event.target.elements.message.value = '';
 					event.target.elements.image.value = '';
 				})
@@ -49,46 +51,95 @@ function PostAnAd() {
 				<h1>CREATE YOUR AD</h1>
 
 				<div className="form-inputs">
-					<label className="image-input" htmlFor="location">
-						Location
-					</label>
-					<input type="text" id="location" name="location"></input>
-
-					<label className="image-input" htmlFor="description">
-						Description
-					</label>
-					<input type="text" id="description" name="description"></input>
-
-					<label className="image-input" htmlFor="cost_per_month">
-						Monthly Rent
-					</label>
-					<input type="number" id="cost_per_month" name="cost_per_month"></input>
-
-					<label className="image-input" htmlFor="distance">
-						Distance
-					</label>
-					<input type="number" id="distance" name="distance"></input>
-
-					<label className="image-input" htmlFor="rental_term">
-						Rental Term
-					</label>
-					<input type="text" id="rental_term" name="rental_term"></input>
-
-					<label className="image-input" htmlFor="available_bedrooms">
-						Available Bedrooms
-					</label>
-					<input type="number" id="available_bedrooms" name="available_bedrooms"></input>
-
-					<label className="image-input" htmlFor="date_available">
-						Date Available
-					</label>
-					<input type="date" id="date_available" name="date_available"></input>
-
-					<label className="image-input" htmlFor="image">
-						Add Img
-					</label>
-					<input type="file" id="image" name="image" accept="image/png, image/jpeg"></input>
-					<button type="submit">Send</button>
+					{/* LOCATION ---------------------------- */}
+					<div>
+						<label className="image-input" htmlFor="location">
+							Location
+						</label>
+						<input
+							required
+							type="text"
+							id="location"
+							name="location"
+							placeholder="1280 Main Street West"
+						></input>
+					</div>
+					{/* MONTHLY RENT ---------------------------- */}
+					<div>
+						<label className="image-input" htmlFor="cost_per_month">
+							Monthly Rent ($)
+						</label>
+						<input
+							required
+							type="number"
+							id="cost_per_month"
+							name="cost_per_month"
+							min={0}
+							placeholder="$"
+						></input>
+					</div>
+					<div>
+						<label className="image-input" htmlFor="distance">
+							Distance (km)
+						</label>
+						<input required type="number" id="distance" name="distance" min={0} placeholder="km"></input>
+					</div>
+					{/* RENTAL TERM ---------------------------- */}
+					<div>
+						<label htmlFor="rental_term">Rental Term</label>
+						<select className="dropdown" name="rental_term" id="rental_term">
+							<option value="12 Month Lease">12 Month Lease</option>
+							<option value="8 Month Lease">8 Month Lease</option>
+							<option value="Short-term/Sublet/Flexible">Short-term/Sublet/Flexible</option>
+						</select>
+					</div>
+					{/* AVAILABLE BEDROOMS ---------------------------- */}
+					<div>
+						<label className="image-input" htmlFor="available_bedrooms">
+							Available Bedrooms
+						</label>
+						<select className="dropdown" name="available_bedrooms" id="available_bedrooms">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5+</option>
+						</select>
+					</div>
+					{/* DATE AVAILABLE ---------------------------- */}
+					<div>
+						<label className="image-input" htmlFor="date_available">
+							Date Available
+						</label>
+						<input
+							required
+							type="date"
+							id="date_available"
+							name="date_available"
+							min={new Date().toISOString().split('T')[0]}
+						></input>
+					</div>
+					{/* IMAGE ---------------------------- */}
+					<div>
+						<label className="image-input" htmlFor="image">
+							Add Img
+						</label>
+						<input required type="file" id="image" name="image" accept="image/png, image/jpeg"></input>
+					</div>
+					{/* DESCRIPTION ---------------------------- */}
+					<div className="description-input">
+						<label className="image-input" htmlFor="description">
+							Description
+						</label>
+						<textarea
+							required
+							type="text"
+							id="description"
+							name="description"
+							placeholder="Describe your property here"
+						></textarea>
+					</div>
+					<button type="submit">Submit</button>
 				</div>
 			</form>
 		</main>
