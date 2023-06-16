@@ -1,13 +1,13 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-function DisplayedProperty({ setDisplay, displayedProperty }) {
+function DisplayedProperty() {
 	const [dropdown, setDropdown] = useState(false);
+	const displayedProperty = useLocation().state;
 
-	console.log(displayedProperty);
 	return (
 		<main className="displayed-property">
 			<section className="sidebar">
-				<button onClick={() => setDisplay(undefined)}>Back</button>
 				<section className="info-panels">
 					<div>
 						<h2>LEASE TIME</h2>

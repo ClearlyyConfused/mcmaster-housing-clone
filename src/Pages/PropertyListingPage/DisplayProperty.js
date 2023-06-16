@@ -1,12 +1,15 @@
-function DisplayProperty({ property, setDisplayedProperty }) {
+import { useNavigate } from 'react-router-dom';
+
+function DisplayProperty({ property }) {
+	const navigate = useNavigate();
+	const displayedProperty = function () {
+		navigate(`/available-properties/${property.location.replace(/\s+/g, '-')}`, {
+			state: property,
+		});
+	};
+
 	return (
-		<section
-			className="property-display"
-			onClick={() => {
-				setDisplayedProperty(property);
-				window.scrollTo(0, 0);
-			}}
-		>
+		<section className="property-display" onClick={displayedProperty}>
 			<div className="property-img-container">
 				<img src={property.propertyImage} alt="" loading="lazy" />
 			</div>
