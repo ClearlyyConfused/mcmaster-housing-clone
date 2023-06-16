@@ -1,31 +1,29 @@
 @use '../../Variables/colors';
 
 .property-side-bar {
-	min-width: 200px;
-	width: 35%;
-	max-width: 260px;
-	border: 1px solid black;
-	padding: 30px 0px;
+	min-width: 275px;
+	padding-bottom: 25px;
 }
 
 /*//////////////////////////////////////////////////*/
 
 .sortby-tab {
-	width: fit-content;
-	margin-left: auto;
-	margin-right: auto;
+	width: 100%;
 }
 
 .sortby-title {
 	color: white;
-	font-size: 18px;
+	font-size: 30px;
 
-	padding: 12px 20px;
+	padding: 15px 30px;
+	text-align: center;
 	background-color: colors.$main-red;
-	width: 130px;
+	transition: 0.3s all;
 
 	&:hover {
 		cursor: pointer;
+		color: black;
+		background-color: white;
 	}
 }
 
@@ -38,15 +36,27 @@
 
 	background-color: colors.$main-red;
 	color: white;
-	padding: 0px 20px;
 
 	height: 0px;
-	width: 130px;
+	width: 275px;
 	overflow: hidden;
 	text-align: center;
-	gap: 10px;
+	box-sizing: border-box;
 
 	transition: height 0.5s;
+
+	h4 {
+		line-height: 15px;
+		margin: 0;
+		padding: 15px 0px;
+		background-color: colors.$main-red;
+		transition: 0.3s all;
+	}
+	h4:hover {
+		cursor: pointer;
+		color: black;
+		background-color: white;
+	}
 
 	&:hover {
 		cursor: pointer;
@@ -55,15 +65,7 @@
 
 .sortby-dropdown-active-true {
 	position: absolute;
-	height: 130px;
-}
-
-.sortby-dropdown-items h4 {
-	margin: 0;
-
-	&:hover {
-		text-decoration: underline;
-	}
+	height: 200px;
 }
 
 /*//////////////////////////////////////////////////*/
@@ -78,11 +80,28 @@
 .filter-items {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	width: 100%;
 
 	div {
+		color: #5e6a71;
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		padding: 0px 20px;
+		border: 0.5px solid #5d6a721d;
+		padding: 10px 20px;
+		padding-bottom: 25px;
+		box-sizing: border-box;
+		height: 120px;
+		font-size: 24px;
+
+		input {
+			font-size: 16px;
+		}
+	}
+	> input {
+		font-size: 24px;
 	}
 }
 
@@ -92,26 +111,11 @@
 
 /*//////////////////////////////////////////////////*/
 
-@media (max-width: 600px) {
-	.property-side-bar {
-		min-width: 30%;
-	}
-	.sortby-tab {
-		flex-direction: column;
-	}
-	.sortby-title {
-		min-width: 80px;
-		max-width: 108px;
-		width: 20vw;
-		padding: 12px 5px;
-		text-align: center;
-	}
+@media (max-width: 650px) {
 	.sortby-dropdown-active-true,
 	.sortby-dropdown-active-false {
-		min-width: 80px;
-		max-width: 108px;
 		padding: 12px 5px;
-		width: 20vw;
+		width: 100%;
 	}
 	.sortby-dropdown-active-false {
 		padding: 0px 5px;

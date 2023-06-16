@@ -1,6 +1,12 @@
 function DisplayProperty({ property, setDisplayedProperty }) {
 	return (
-		<section className="property-display" onClick={() => setDisplayedProperty(property)}>
+		<section
+			className="property-display"
+			onClick={() => {
+				setDisplayedProperty(property);
+				window.scrollTo(0, 0);
+			}}
+		>
 			<div className="property-img-container">
 				<img src={property.propertyImage} alt="" loading="lazy" />
 			</div>

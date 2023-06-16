@@ -34,7 +34,6 @@ function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
 
 	return (
 		<div className="filter-tab">
-			<h3>FILTER</h3>
 			<form
 				className="filter-items"
 				onSubmit={(event) => {
@@ -79,7 +78,7 @@ function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
 						max="15"
 					/>
 				</div>
-				<input className="filter-submit" type="submit" value="Submit" />
+				<input className="filter-submit" type="submit" value="Filter" />
 			</form>
 		</div>
 	);
