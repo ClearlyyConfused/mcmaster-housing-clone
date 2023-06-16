@@ -2,14 +2,16 @@ import { useNavigate } from 'react-router-dom';
 
 function DisplayProperty({ property }) {
 	const navigate = useNavigate();
-	const displayedProperty = function () {
+	const viewProperty = function () {
+		// goes to url available-properties/propertyName
+		// replaces spaces in propertyName with dashes
 		navigate(`/available-properties/${property.location.replace(/\s+/g, '-')}`, {
 			state: property,
 		});
 	};
 
 	return (
-		<section className="property-display" onClick={displayedProperty}>
+		<section className="property-display" onClick={viewProperty}>
 			<div className="property-img-container">
 				<img src={property.propertyImage} alt="" loading="lazy" />
 			</div>
