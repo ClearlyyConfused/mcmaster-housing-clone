@@ -118,25 +118,35 @@
 	background-color: #efefef;
 	width: 100%;
 	display: flex;
+	flex-direction: column;
 
-	@media (max-width: 800px) {
-		flex-direction: column;
-	}
 	// image + description
 	.main-display {
 		width: 100%;
 		display: flex;
 		box-sizing: border-box;
-		flex-direction: column;
+		padding: 60px 10px;
+
+		@media (max-width: 1000px) {
+			flex-direction: column;
+			align-items: center;
+			img {
+				width: 100% !important;
+			}
+			.location-info {
+				width: 100% !important;
+			}
+		}
 
 		img {
-			width: 100%;
+			width: 50%;
 			height: auto;
+			object-fit: cover;
 		}
 		.location-info {
 			display: flex;
 			flex-direction: column;
-			width: 100%;
+			width: 50%;
 			padding: 0px 25px;
 			box-sizing: border-box;
 
@@ -188,63 +198,30 @@
 			}
 		}
 	}
-	.sidebar {
+	.info-panels {
 		display: flex;
-		flex-direction: column;
 		background-color: white;
-		min-width: 275px;
+		color: #5e6a71;
+		flex-wrap: wrap;
 
-		// back button
-		> button {
-			background-color: #7a003c;
-			color: white;
-			border: none;
-			font-size: 30px;
-			padding: 15px 30px;
-			transition: 0.3s all;
-			//position: sticky;
-			//top: 0px;
+		// panels
+		div {
+			min-width: 275px;
+			flex: 1;
+			padding: 0px 20px;
+			border: 0.5px solid #5d6a721d;
+			padding: 10px 20px;
+			padding-bottom: 25px;
+			box-sizing: border-box;
 
-			/*
-			@media (max-width: 800px) {
-				position: fixed;
-				width: 100%;
-				z-index: 2;
-				top: auto;
-				bottom: 0px;
+			h2 {
+				padding: 15px 0px;
+				margin: 0;
+				font-size: 14px;
 			}
-			*/
-
-			&:hover {
-				cursor: pointer;
-				color: black;
-				background-color: white;
-			}
-		}
-
-		.info-panels {
-			color: #5e6a71;
-			display: flex;
-			flex-direction: column;
-
-			// panels
-			div {
-				flex: 1;
-				padding: 0px 20px;
-				border: 0.5px solid #5d6a721d;
-				padding: 10px 20px;
-				padding-bottom: 25px;
-				box-sizing: border-box;
-
-				h2 {
-					padding: 15px 0px;
-					margin: 0;
-					font-size: 14px;
-				}
-				p {
-					margin: 0;
-					font-size: 24px;
-				}
+			p {
+				margin: 0;
+				font-size: 24px;
 			}
 		}
 	}

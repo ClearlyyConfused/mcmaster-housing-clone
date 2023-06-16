@@ -28,36 +28,6 @@ function DisplayedProperty() {
 	} else {
 		return (
 			<main className="displayed-property">
-				<section className="sidebar">
-					<section className="info-panels">
-						<div>
-							<h2>LEASE TIME</h2>
-							<p>{property.rental_term}</p>
-						</div>
-						<div>
-							<h2>RENT PER MONTH</h2>
-							<p>${property.cost_per_month}</p>
-						</div>
-						<div>
-							<h2>DISTANCE (KM)</h2>
-							<p>{property.distance}</p>
-						</div>
-						<div>
-							<h2># OF BEDROOMS AVAILABLE</h2>
-							<p>{property.available_bedrooms}</p>
-						</div>
-						<div>
-							<h2>DATE AVAILABLE</h2>
-							<p>
-								{new Date(property.date_available).toLocaleString('en-US', {
-									year: 'numeric',
-									month: 'long',
-									day: 'numeric',
-								})}
-							</p>
-						</div>
-					</section>
-				</section>
 				<section className="main-display">
 					<img src={property.propertyImage} alt="" srcset="" />
 					<div className="location-info">
@@ -73,6 +43,34 @@ function DisplayedProperty() {
 							</button>
 							<p style={{ visibility: dropdown ? '' : 'hidden' }}>Email: {property.landlord_email}</p>
 						</div>
+					</div>
+				</section>
+				<section className="info-panels">
+					<div>
+						<h2>LEASE TIME</h2>
+						<p>{property.rental_term}</p>
+					</div>
+					<div>
+						<h2>RENT PER MONTH</h2>
+						<p>${property.cost_per_month}</p>
+					</div>
+					<div>
+						<h2>DISTANCE (KM)</h2>
+						<p>{property.distance}</p>
+					</div>
+					<div>
+						<h2># OF BEDROOMS AVAILABLE</h2>
+						<p>{property.available_bedrooms}</p>
+					</div>
+					<div>
+						<h2>DATE AVAILABLE</h2>
+						<p>
+							{new Date(property.date_available).toLocaleString('en-US', {
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+							})}
+						</p>
 					</div>
 				</section>
 			</main>
