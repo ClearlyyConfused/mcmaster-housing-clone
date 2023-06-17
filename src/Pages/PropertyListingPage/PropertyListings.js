@@ -7,6 +7,7 @@ import Login from '../../Auth/Login/LoginPage';
 import PropertySidebar from '../../components//PropertyListingSidebar/PropertySidebar';
 import DisplayProperty from './DisplayProperty';
 import DisplayedProperty from './DisplayedProperty';
+import sortProperties from '../../components/PropertyListingSidebar/sortProperties';
 
 function PropertyListings() {
 	const user = CheckLogin()[0];
@@ -14,14 +15,23 @@ function PropertyListings() {
 	const [allPropertyList, setAllPropertyList] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [displayedProperty, setDisplayedProperty] = useState(undefined);
-	const [sortby, setSortby] = useState('LATEST');
+	const [sortby, setSortby] = useState('OLDEST');
 
 	useEffect(() => {
 		fetch('https://mcmaster-housing-clone-api.vercel.app/property')
 			.then((response) => response.json())
 			.then((data) => {
-				data.sort((a, b) => new Date(b.date) - new Date(a.date));
-				setPropertyList(data);
+				console.log(localStorage.queries !== undefined);
+				if (localStorage.queries === undefined) {
+					data.sort((a, b) => new Date(b.date) - new Date(a.date));
+					setPropertyList(data);
+				} else {
+					sortProperties(
+						JSON.parse(localStorage.queries).sortby,
+						JSON.parse(localStorage.queries).propertyList,
+						setPropertyList
+					);
+				}
 				setAllPropertyList(data);
 				setLoading(false);
 			});

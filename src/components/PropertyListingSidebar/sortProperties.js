@@ -12,6 +12,7 @@ function sortProperties(type, propertyList, setPropertyList) {
 		newList = [...propertyList];
 	}
 	setPropertyList(newList);
+	localStorage.setItem('queries', JSON.stringify({ propertyList: newList, sortby: type }));
 }
 
 export default sortProperties;

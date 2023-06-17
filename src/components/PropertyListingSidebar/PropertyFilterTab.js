@@ -2,9 +2,15 @@ import { useState } from 'react';
 import sortProperties from './sortProperties';
 
 function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
-	const [minPrice, setMinPrice] = useState(0);
-	const [maxPrice, setMaxPrice] = useState(1000);
-	const [maxDistance, setMaxDistance] = useState(10);
+	const [minPrice, setMinPrice] = useState(
+		localStorage.filters !== undefined ? JSON.parse(localStorage.filters).minPrice : 0
+	);
+	const [maxPrice, setMaxPrice] = useState(
+		localStorage.filters !== undefined ? JSON.parse(localStorage.filters).maxPrice : 1000
+	);
+	const [maxDistance, setMaxDistance] = useState(
+		localStorage.filters !== undefined ? JSON.parse(localStorage.filters).maxDistance : 10
+	);
 
 	function changeMinPrice(event) {
 		setMinPrice(event.target.value);
@@ -29,6 +35,10 @@ function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
 				newList.push(property);
 			}
 		}
+		localStorage.setItem(
+			'filters',
+			JSON.stringify({ minPrice: minPrice, maxPrice: maxPrice, maxDistance: maxDistance })
+		);
 		sortProperties(sortby, newList, setPropertyList);
 	}
 

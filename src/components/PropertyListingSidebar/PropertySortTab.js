@@ -23,10 +23,54 @@ function PropertySort({ setSortby, propertyList, setPropertyList }) {
 	return (
 		<div className="sortby-tab">
 			<select onChange={handleChange} name="sortby" id="sortby">
-				<option value="LATEST">LATEST</option>
-				<option value="OLDEST">OLDEST</option>
-				<option value="Price ^">Price ^</option>
-				<option value="Price v">Price v</option>
+				<option
+					selected={
+						localStorage.queries !== undefined
+							? JSON.parse(localStorage.queries).sortby === 'LATEST'
+								? 'SELECT'
+								: ''
+							: ''
+					}
+					value="LATEST"
+				>
+					LATEST
+				</option>
+				<option
+					selected={
+						localStorage.queries !== undefined
+							? JSON.parse(localStorage.queries).sortby === 'OLDEST'
+								? 'SELECT'
+								: ''
+							: ''
+					}
+					value="OLDEST"
+				>
+					OLDEST
+				</option>
+				<option
+					selected={
+						localStorage.queries !== undefined
+							? JSON.parse(localStorage.queries).sortby === 'OLDEST'
+								? 'PRICE ^'
+								: ''
+							: ''
+					}
+					value="Price ^"
+				>
+					Price ^
+				</option>
+				<option
+					selected={
+						localStorage.queries !== undefined
+							? JSON.parse(localStorage.queries).sortby === 'OLDEST'
+								? 'PRICE v'
+								: ''
+							: ''
+					}
+					value="Price v"
+				>
+					Price v
+				</option>
 			</select>
 		</div>
 	);

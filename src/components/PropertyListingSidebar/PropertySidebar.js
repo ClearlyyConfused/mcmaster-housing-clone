@@ -1,12 +1,16 @@
 import './PropertySidebar.css';
 import PropertySortTab from './PropertySortTab';
-import PropertyFilter from './PropertyFilterTab';
+import PropertyFilterTab from './PropertyFilterTab';
 
 function PropertySidebar({ propertyList, setPropertyList, allPropertyList, sortby, setSortby }) {
 	return (
 		<section className="property-side-bar">
 			<PropertySortTab propertyList={propertyList} setPropertyList={setPropertyList} setSortby={setSortby} />
-			<PropertyFilter sortby={sortby} setPropertyList={setPropertyList} allPropertyList={allPropertyList} />
+			<PropertyFilterTab
+				sortby={sortby}
+				setPropertyList={setPropertyList}
+				allPropertyList={allPropertyList}
+			/>
 		</section>
 	);
 }
