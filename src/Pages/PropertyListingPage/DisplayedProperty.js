@@ -4,6 +4,7 @@ import CheckLogin from '../../Auth/CheckLogin';
 import Login from '../../Auth/Login/LoginPage';
 
 function DisplayedProperty() {
+	window.scrollTo(0, 0);
 	const user = CheckLogin()[0];
 	const [dropdown, setDropdown] = useState(false);
 	// gets property info from the state passed in the link
