@@ -1,17 +1,12 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function DisplayProperty({ property }) {
-	const navigate = useNavigate();
-	const viewProperty = function () {
-		// goes to url available-properties/propertyName
-		// replaces spaces in propertyName with dashes
-		navigate(`/available-properties/${property.location.replace(/\s+/g, '-')}`, {
-			state: property,
-		});
-	};
-
 	return (
-		<section className="property-display" onClick={viewProperty}>
+		<Link
+			className="property-display"
+			to={`/available-properties/${property.location.replace(/\s+/g, '-')}`}
+			state={property}
+		>
 			<div className="property-img-container">
 				<img src={property.propertyImage} alt="" loading="lazy" />
 			</div>
@@ -24,7 +19,7 @@ function DisplayProperty({ property }) {
 					<h3>Posted on {property.date}</h3>
 				</div>
 			</div>
-		</section>
+		</Link>
 	);
 }
 

@@ -9,7 +9,6 @@ import DisplayProperty from './DisplayProperty';
 import DisplayedProperty from './DisplayedProperty';
 
 function PropertyListings() {
-	window.scrollTo(0, 0);
 	const user = CheckLogin()[0];
 	const [propertyList, setPropertyList] = useState([]);
 	const [allPropertyList, setAllPropertyList] = useState([]);
