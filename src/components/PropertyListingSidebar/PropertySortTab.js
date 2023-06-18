@@ -50,7 +50,7 @@ function PropertySort({ setSortby, propertyList, setPropertyList }) {
 				<option
 					selected={
 						localStorage.queries !== undefined
-							? JSON.parse(localStorage.queries).sortby === 'OLDEST'
+							? JSON.parse(localStorage.queries).sortby === 'PRICE ^'
 								? 'PRICE ^'
 								: ''
 							: ''
@@ -62,7 +62,7 @@ function PropertySort({ setSortby, propertyList, setPropertyList }) {
 				<option
 					selected={
 						localStorage.queries !== undefined
-							? JSON.parse(localStorage.queries).sortby === 'OLDEST'
+							? JSON.parse(localStorage.queries).sortby === 'PRICE v'
 								? 'PRICE v'
 								: ''
 							: ''

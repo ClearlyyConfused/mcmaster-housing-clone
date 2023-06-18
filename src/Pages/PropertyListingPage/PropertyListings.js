@@ -25,11 +25,18 @@ function PropertyListings() {
 					data.sort((a, b) => new Date(b.date) - new Date(a.date));
 					setPropertyList(data);
 				} else {
-					sortProperties(
-						JSON.parse(localStorage.queries).sortby,
-						JSON.parse(localStorage.queries).propertyList,
-						setPropertyList
-					);
+					let newList = [];
+					for (const property of data) {
+						if (
+							property.cost_per_month >= JSON.parse(localStorage.filters).minPrice &&
+							property.cost_per_month <= JSON.parse(localStorage.filters).maxPrice &&
+							property.distance <= JSON.parse(localStorage.filters).maxDistance
+						) {
+							newList.push(property);
+						}
+					}
+
+					sortProperties(JSON.parse(localStorage.queries).sortby, newList, setPropertyList);
 				}
 				setAllPropertyList(data);
 				setLoading(false);
