@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import CheckLogin from '../../Auth/CheckLogin';
 import Login from '../../Auth/Login/LoginPage';
 import './PostAnAd.css';
+import UserAds from './UserAds';
 
 function PostAnAd() {
 	const user = CheckLogin()[0];
@@ -141,6 +141,7 @@ function PostAnAd() {
 					<button type="submit">Submit</button>
 				</div>
 			</form>
+			<UserAds />
 		</main>
 	);
 }

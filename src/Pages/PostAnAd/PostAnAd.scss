@@ -1,6 +1,6 @@
 @use '../../Variables/colors';
-
-.post-an-ad {
+.post-an-ad,
+.user-ads {
 	height: 100%;
 	padding: 30px 20px;
 
@@ -14,6 +14,7 @@
 		font-size: 20px;
 		border: 0px;
 	}
+
 	form {
 		background-color: #efefef;
 		padding: 20px;
@@ -21,6 +22,7 @@
 		h1 {
 			margin: 0px;
 			padding: 10px 0px;
+			font-size: 32px;
 		}
 		.form-inputs {
 			display: flex;
@@ -86,6 +88,26 @@
 					font-size: 16px;
 				}
 			}
+		}
+	}
+}
+
+.user-ads {
+	background-color: #efefef;
+	.ad {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		img {
+			width: 150px;
+			height: auto;
+			object-fit: cover;
+		}
+
+		button {
+			margin-left: auto;
+			width: 35px;
+			height: 35px;
 		}
 	}
 }
