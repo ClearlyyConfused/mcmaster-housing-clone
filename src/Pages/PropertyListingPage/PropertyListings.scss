@@ -2,8 +2,8 @@
 
 .property-listing-page {
 	display: flex;
-
-	min-height: 3000px;
+	min-height: 1500px;
+	background-color: #f0f0f0;
 
 	@media (max-width: 650px) {
 		flex-direction: column;
@@ -12,10 +12,11 @@
 
 .property-listings {
 	display: flex;
-	flex-grow: 1;
 	flex-wrap: wrap;
 	gap: 10px;
 	padding: 20px;
+	flex: 1;
+	height: fit-content;
 
 	background-color: #f0f0f0;
 }
