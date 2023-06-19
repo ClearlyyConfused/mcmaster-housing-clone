@@ -15,13 +15,13 @@ function PropertyListings() {
 	const [allPropertyList, setAllPropertyList] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [displayedProperty, setDisplayedProperty] = useState(undefined);
-	const [sortby, setSortby] = useState('OLDEST');
+	const [sortby, setSortby] = useState('LATEST');
 
 	useEffect(() => {
 		fetch('https://mcmaster-housing-clone-api.vercel.app/property')
 			.then((response) => response.json())
 			.then((data) => {
-				if (localStorage.queries === undefined) {
+				if (localStorage.queries === undefined || localStorage.filters === undefined) {
 					data.sort((a, b) => new Date(b.date) - new Date(a.date));
 					setPropertyList(data);
 				} else {
@@ -35,7 +35,6 @@ function PropertyListings() {
 							newList.push(property);
 						}
 					}
-
 					sortProperties(JSON.parse(localStorage.queries).sortby, newList, setPropertyList);
 				}
 				setAllPropertyList(data);

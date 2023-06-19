@@ -68,8 +68,43 @@
 	}
 }
 
+.filter-submit {
+	background-color: rgb(253, 191, 87);
+	border: none;
+	width: 80%;
+	border-radius: 30px;
+	align-self: center;
+	font-weight: bold;
+	padding: 14px;
+	font-size: 20px !important;
+	margin-top: 25px;
+	box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s;
+}
 .filter-submit:hover {
 	cursor: pointer;
+	box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.4);
+	background-color: #dbdbdd;
+}
+
+.reset-button {
+	background-color: white;
+	border: 0.5px solid #dbdbdd;
+	width: 80%;
+	border-radius: 30px;
+	align-self: center;
+	font-weight: bold;
+	padding: 14px;
+	font-size: 20px !important;
+	margin-top: 25px;
+	box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s;
+}
+
+.reset-button:hover {
+	cursor: pointer;
+	box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.4);
+	background-color: #dbdbdd;
 }
 
 /*//////////////////////////////////////////////////*/
