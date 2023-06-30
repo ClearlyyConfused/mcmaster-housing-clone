@@ -14,27 +14,19 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 	/* prettier-ignore */
 	if (currentPage === 'HOME') {
 		headerTop = (
-			<Link to="/">
-				<button onClick={() => {setDisplay(true);}}>HOME</button>
-			</Link>
+			<button onClick={() => {setDisplay(true);}}>HOME</button>
 		);
 	} else if (currentPage === 'POST AD') {
 		headerTop = (
-			<Link to="post-a-property">
-				<button onClick={() => {setDisplay(true);}}>POST AD</button>
-			</Link>
+			<button onClick={() => {setDisplay(true);}}>POST AD</button>
 		);
 	} else if (currentPage === 'AVAILABLE PROPERTIES') {
 		headerTop = (
-			<Link to="available-properties">
-				<button onClick={() => {setDisplay(true);}}>AVAILABLE PROPERTIES</button>
-			</Link>
+			<button onClick={() => {setDisplay(true);}}>AVAILABLE PROPERTIES</button>
 		);
 	} else if (currentPage === 'MOBILE VIEW') {
 		headerTop = (
-			<Link to="mobile-view">
-				<button onClick={() => {setDisplay(true);}}>MOBILE VIEW</button>
-			</Link>
+			<button onClick={() => {setDisplay(true);}}>MOBILE VIEW</button>
 		);
 	}
 
