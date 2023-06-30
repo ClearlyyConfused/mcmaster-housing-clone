@@ -15,16 +15,28 @@
 	padding: 40px 0px;
 
 	#sortby {
+		// removes default styling in mobile overriding css
+		-webkit-appearance: none;
+		appearance: none;
+
+		color: black;
 		border: 1px solid #93939a;
-		border-radius: 28px;
+		border-radius: 30px;
 		background-color: white;
-		padding: 5px 10px;
+		padding: 14px;
 		box-sizing: border-box;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		min-height: 50px;
 		font-size: 18px;
-		width: 85%;
+		width: 80%;
+		box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+
+		// re-adds dropdown arrow since default styling removed
+		background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" xml:space="preserve"><path d="M7.41,8.59L12,13.17l4.59-4.58L18,10l-6,6l-6-6L7.41,8.59z"/><path fill="none" d="M0,0h24v24H0V0z"/></svg>');
+		background-position: center right;
+		background-repeat: no-repeat;
+
 		&:hover {
 			cursor: pointer;
 		}
@@ -51,7 +63,6 @@
 		flex-direction: column;
 		justify-content: center;
 		width: 100%;
-		padding: 0px 20px;
 		border: 0.5px solid #5d6a721d;
 		padding: 10px 20px;
 		padding-bottom: 25px;
@@ -76,6 +87,7 @@
 	align-self: center;
 	font-weight: bold;
 	padding: 14px;
+	color: black;
 	font-size: 20px !important;
 	margin-top: 25px;
 	box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
@@ -88,6 +100,7 @@
 }
 
 .reset-button {
+	color: black;
 	background-color: white;
 	border: 0.5px solid #dbdbdd;
 	width: 80%;

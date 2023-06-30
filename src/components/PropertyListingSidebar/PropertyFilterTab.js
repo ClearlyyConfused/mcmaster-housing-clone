@@ -89,7 +89,9 @@ function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
 						max="15"
 					/>
 				</div>
-				<input className="filter-submit" type="submit" value="FILTER" />
+				<button className="filter-submit" type="submit">
+					FILTER
+				</button>
 				<button
 					className="reset-button"
 					onClick={(e) => {

@@ -41,23 +41,25 @@ function UserAds() {
 	return (
 		<section className="user-ads">
 			<h1>YOUR ADS</h1>
-			{userAds === undefined
-				? ''
-				: userAds.map((ad) => {
-						return (
-							<div className="ad">
-								<img src={ad.propertyImage} alt="" srcset="" />
-								<h2>{ad.location}</h2>
-								<button
-									onClick={() => {
-										deleteProperty(ad.location);
-									}}
-								>
-									X
-								</button>
-							</div>
-						);
-				  })}
+			<div className="ads">
+				{userAds === undefined
+					? ''
+					: userAds.map((ad) => {
+							return (
+								<div className="ad">
+									<img src={ad.propertyImage} alt="" srcset="" />
+									<h2>{ad.location}</h2>
+									<button
+										onClick={() => {
+											deleteProperty(ad.location);
+										}}
+									>
+										X
+									</button>
+								</div>
+							);
+					  })}
+			</div>
 		</section>
 	);
 }
