@@ -61,6 +61,7 @@ function PostAnAd() {
 							id="location"
 							name="location"
 							placeholder="1280 Main Street West"
+							maxLength={60}
 						></input>
 					</div>
 					{/* MONTHLY RENT ---------------------------- */}
@@ -136,6 +137,7 @@ function PostAnAd() {
 							id="description"
 							name="description"
 							placeholder="Describe your property here"
+							maxLength={1200}
 						></textarea>
 					</div>
 					<button type="submit">Submit</button>

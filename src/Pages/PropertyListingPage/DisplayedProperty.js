@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import CheckLogin from '../../Auth/CheckLogin';
 import Login from '../../Auth/Login/LoginPage';
 
 function DisplayedProperty() {
-	window.scrollTo(0, 0);
 	const user = CheckLogin()[0];
 	const [dropdown, setDropdown] = useState(false);
 	// gets property info from the state passed in the link
+	console.log(useLocation().state);
 	const [property, setProperty] = useState(useLocation().state);
 	// get the property name from the url
 	const propertyNameUrl = useParams().propertyName.replace(/\s+/g, '-');
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	if (user === null) {
 		return <Login />;
@@ -67,6 +71,16 @@ function DisplayedProperty() {
 						<h2>DATE AVAILABLE</h2>
 						<p>
 							{new Date(property.date_available).toLocaleString('en-US', {
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+							})}
+						</p>
+					</div>
+					<div>
+						<h2>DATE POSTED</h2>
+						<p>
+							{new Date(property.date).toLocaleString('en-US', {
 								year: 'numeric',
 								month: 'long',
 								day: 'numeric',
