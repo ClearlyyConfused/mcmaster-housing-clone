@@ -88,16 +88,7 @@ function DisplayedProperty() {
 					</div>
 					<div>
 						<h2>DISTANCE (KM)</h2>
-						<p>
-							{propertyCord.lat !== undefined
-								? getDistanceFromLatLonInKm(
-										propertyCord.lat,
-										propertyCord.lon,
-										43.26099902067609,
-										-79.91916079633296
-								  )
-								: 'N/A'}
-						</p>
+						<p>{property.distance !== -1 ? property.distance : 'N/A'}</p>
 					</div>
 					<div>
 						<h2># OF BEDROOMS AVAILABLE</h2>
@@ -144,7 +135,7 @@ function DisplayedProperty() {
 							</Marker>
 						</MapContainer>
 					) : (
-						''
+						'Location could not be found on map.'
 					)}
 				</section>
 			</main>

@@ -6,8 +6,29 @@ import UserAds from './UserAds';
 function PostAnAd() {
 	const user = CheckLogin()[0];
 
-	function handleSubmit(event) {
+	async function fetchPropertyDistance(propertyLocation) {
+		return fetch(
+			'https://nominatim.openstreetmap.org/search?' +
+				new URLSearchParams({
+					street: propertyLocation,
+					city: 'hamilton',
+					country: 'canada',
+					format: 'json',
+				})
+		).then((res) =>
+			res.json().then((data) => {
+				if (data.length !== 0) {
+					return getDistanceFromLatLonInKm(data[0].lat, data[0].lon, 43.26099902067609, -79.91916079633296);
+				} else {
+					return -1;
+				}
+			})
+		);
+	}
+
+	async function handleSubmit(event) {
 		event.preventDefault();
+		const propertyDistance = await fetchPropertyDistance(event.target.elements.location.value);
 
 		// if message has an image, convert it then call sendMessage with result
 		let reader = new FileReader();
@@ -25,7 +46,7 @@ function PostAnAd() {
 					location: event.target.elements.location.value,
 					description: event.target.elements.description.value,
 					cost_per_month: event.target.elements.cost_per_month.value,
-					distance: event.target.elements.distance.value,
+					distance: propertyDistance,
 					rental_term: event.target.elements.rental_term.value,
 					available_bedrooms: event.target.elements.available_bedrooms.value,
 					date_available: event.target.elements.date_available.value,
@@ -77,12 +98,6 @@ function PostAnAd() {
 							min={0}
 							placeholder="$"
 						></input>
-					</div>
-					<div>
-						<label className="image-input" htmlFor="distance">
-							Distance (km)
-						</label>
-						<input required type="number" id="distance" name="distance" min={0} placeholder="km"></input>
 					</div>
 					{/* RENTAL TERM ---------------------------- */}
 					<div>
@@ -146,6 +161,22 @@ function PostAnAd() {
 			<UserAds />
 		</main>
 	);
+}
+
+function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+	var R = 6371; // Radius of the earth in km
+	var dLat = deg2rad(lat2 - lat1); // deg2rad below
+	var dLon = deg2rad(lon2 - lon1);
+	var a =
+		Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+		Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	var d = R * c; // Distance in km
+	return d.toFixed(2);
+}
+
+function deg2rad(deg) {
+	return deg * (Math.PI / 180);
 }
 
 export default PostAnAd;
