@@ -2,6 +2,19 @@ import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import CheckLogin from '../../Auth/CheckLogin';
 import Login from '../../Auth/Login/LoginPage';
+import L from 'leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+let DefaultIcon = L.icon({
+	iconUrl: icon,
+	shadowUrl: iconShadow,
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 function DisplayedProperty() {
 	const user = CheckLogin()[0];
@@ -110,6 +123,29 @@ function DisplayedProperty() {
 							})}
 						</p>
 					</div>
+				</section>
+				<section>
+					{propertyCord.lat !== undefined ? (
+						<MapContainer
+							id="map"
+							center={[propertyCord.lat, propertyCord.lon]}
+							zoom={13}
+							scrollWheelZoom={false}
+						>
+							<TileLayer
+								attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+							/>
+							<Marker position={[propertyCord.lat, propertyCord.lon]}>
+								<Popup>{property.location}</Popup>
+							</Marker>
+							<Marker position={[43.26099902067609, -79.91916079633296]}>
+								<Popup>McMaster University</Popup>
+							</Marker>
+						</MapContainer>
+					) : (
+						''
+					)}
 				</section>
 			</main>
 		);
