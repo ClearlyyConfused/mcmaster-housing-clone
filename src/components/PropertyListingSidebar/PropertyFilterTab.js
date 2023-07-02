@@ -25,12 +25,14 @@ function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
 	}
 
 	function filterProperties(filter) {
+		console.log(sortby);
 		let newList = [];
 		for (const property of allPropertyList) {
 			if (
 				property.cost_per_month >= filter.minPrice &&
 				property.cost_per_month <= filter.maxPrice &&
-				property.distance <= filter.maxDistance
+				property.distance <= filter.maxDistance &&
+				property.distance !== -1
 			) {
 				newList.push(property);
 			}
