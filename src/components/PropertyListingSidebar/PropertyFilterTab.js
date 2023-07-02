@@ -25,7 +25,6 @@ function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
 	}
 
 	function filterProperties(filter) {
-		console.log(filter);
 		let newList = [];
 		for (const property of allPropertyList) {
 			if (

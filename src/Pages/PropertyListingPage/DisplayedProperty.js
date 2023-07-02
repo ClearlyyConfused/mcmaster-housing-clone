@@ -7,13 +7,27 @@ function DisplayedProperty() {
 	const user = CheckLogin()[0];
 	const [dropdown, setDropdown] = useState(false);
 	// gets property info from the state passed in the link
-	console.log(useLocation().state);
 	const [property, setProperty] = useState(useLocation().state);
+	const [propertyCord, setPropertyCord] = useState({ lat: undefined, lon: undefined });
 	// get the property name from the url
 	const propertyNameUrl = useParams().propertyName.replace(/\s+/g, '-');
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
+
+		fetch(
+			'https://nominatim.openstreetmap.org/search?' +
+				new URLSearchParams({
+					street: property.location,
+					city: 'hamilton',
+					country: 'canada',
+					format: 'json',
+				})
+		).then((res) =>
+			res.json().then((data) => {
+				setPropertyCord({ lat: data[0].lat, lon: data[0].lon });
+			})
+		);
 	}, []);
 
 	if (user === null) {
@@ -61,7 +75,16 @@ function DisplayedProperty() {
 					</div>
 					<div>
 						<h2>DISTANCE (KM)</h2>
-						<p>{property.distance}</p>
+						<p>
+							{propertyCord.lat !== undefined
+								? getDistanceFromLatLonInKm(
+										propertyCord.lat,
+										propertyCord.lon,
+										43.26099902067609,
+										-79.91916079633296
+								  )
+								: 'N/A'}
+						</p>
 					</div>
 					<div>
 						<h2># OF BEDROOMS AVAILABLE</h2>
@@ -91,6 +114,22 @@ function DisplayedProperty() {
 			</main>
 		);
 	}
+}
+
+function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+	var R = 6371; // Radius of the earth in km
+	var dLat = deg2rad(lat2 - lat1); // deg2rad below
+	var dLon = deg2rad(lon2 - lon1);
+	var a =
+		Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+		Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	var d = R * c; // Distance in km
+	return d.toFixed(2);
+}
+
+function deg2rad(deg) {
+	return deg * (Math.PI / 180);
 }
 
 export default DisplayedProperty;

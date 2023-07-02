@@ -32,9 +32,7 @@ function UserAds() {
 		};
 
 		fetch('https://mcmaster-housing-clone-api.vercel.app/delete-property', reqOptions).then((res) =>
-			res.json().then((data) => {
-				console.log(data);
-			})
+			res.json().then((data) => {})
 		);
 	}
 
