@@ -1,4 +1,4 @@
-import sortProperties from './sortProperties';
+import sortProperties from '../../Helper/sortProperties';
 
 function PropertySort({ propertyList, setPropertyList }) {
 	// whenever dropdown value changes, call sortProperties with new sortBy

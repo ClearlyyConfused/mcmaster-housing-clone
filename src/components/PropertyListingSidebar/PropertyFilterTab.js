@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import sortProperties from './sortProperties';
+import sortProperties from '../../Helper/sortProperties';
+import filterProperties from '../../Helper/filterProperties';
 
 function PropertyFilter({ setPropertyList, allPropertyList }) {
+	// check localStorage for filters, if none display default value
 	const [minPrice, setMinPrice] = useState(
 		localStorage.filters !== undefined ? JSON.parse(localStorage.filters).minPrice : 0
 	);
@@ -15,31 +17,16 @@ function PropertyFilter({ setPropertyList, allPropertyList }) {
 	function changeMinPrice(event) {
 		setMinPrice(event.target.value);
 	}
-
 	function changeMaxPrice(event) {
 		setMaxPrice(event.target.value);
 	}
-
 	function changeMaxDistance(event) {
 		setMaxDistance(event.target.value);
 	}
 
-	function filterProperties(filter) {
-		let newList = [];
-		for (const property of allPropertyList) {
-			if (
-				property.cost_per_month >= filter.minPrice &&
-				property.cost_per_month <= filter.maxPrice &&
-				property.distance <= filter.maxDistance &&
-				property.distance !== -1
-			) {
-				newList.push(property);
-			}
-		}
-		localStorage.setItem(
-			'filters',
-			JSON.stringify({ minPrice: minPrice, maxPrice: maxPrice, maxDistance: maxDistance })
-		);
+	// filters properties based on filters, store filters in localStorage, sort properties by sortBy
+	function handleFilter(filters) {
+		const newList = filterProperties(allPropertyList, filters);
 		sortProperties(JSON.parse(localStorage.sortBy), newList, setPropertyList);
 	}
 
@@ -49,7 +36,7 @@ function PropertyFilter({ setPropertyList, allPropertyList }) {
 				className="filter-items"
 				onSubmit={(event) => {
 					event.preventDefault();
-					filterProperties({
+					handleFilter({
 						minPrice: parseInt(minPrice),
 						maxPrice: parseInt(maxPrice),
 						maxDistance: parseInt(maxDistance),

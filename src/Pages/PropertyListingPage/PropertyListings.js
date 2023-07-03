@@ -6,7 +6,8 @@ import CheckLogin from '../../Auth/CheckLogin';
 import Login from '../../Auth/Login/LoginPage';
 import PropertySidebar from '../../components//PropertyListingSidebar/PropertySidebar';
 import DisplayProperty from './DisplayProperty';
-import sortProperties from '../../components/PropertyListingSidebar/sortProperties';
+import sortProperties from '../../Helper/sortProperties';
+import filterProperties from '../../Helper/filterProperties';
 
 function PropertyListings() {
 	const user = CheckLogin()[0];
@@ -34,17 +35,7 @@ function PropertyListings() {
 				// if localStorage.filters not empty, then sortBy also not empty (default LATEST when filtered)
 				// filter all properties by filters in localStorage, sort filtered by the sortBy in localStorage
 				else {
-					let newList = [];
-					for (const property of data) {
-						if (
-							property.cost_per_month >= JSON.parse(localStorage.filters).minPrice &&
-							property.cost_per_month <= JSON.parse(localStorage.filters).maxPrice &&
-							property.distance <= JSON.parse(localStorage.filters).maxDistance &&
-							property.distance !== -1
-						) {
-							newList.push(property);
-						}
-					}
+					const newList = filterProperties(data, JSON.parse(localStorage.filters));
 					sortProperties(JSON.parse(localStorage.sortBy), newList, setPropertyList);
 				}
 				setAllPropertyList(data);
