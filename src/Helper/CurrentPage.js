@@ -8,8 +8,6 @@ function CurrentPage() {
 		startingPage = 'POST AD';
 	} else if (startingPage === '/available-properties') {
 		startingPage = 'AVAILABLE PROPERTIES';
-	} else if (startingPage === '/mobile-view') {
-		startingPage = 'MOBILE VIEW';
 	}
 
 	return startingPage;

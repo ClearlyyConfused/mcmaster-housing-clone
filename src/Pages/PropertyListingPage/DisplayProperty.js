@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import bed from '../../images/bed.svg';
 import money from '../../images/money.svg';
-import calander from '../../images/calander.svg';
+import calender from '../../images/calander.svg';
 import lease from '../../images/lease.svg';
 import posted from '../../images/posted.svg';
 
-function DisplayProperty({ property, setPath }) {
+// returns link to displayed property page
+// also passes in property info as a state
+function DisplayProperty({ property }) {
 	return (
 		<Link
 			className="property-display"
@@ -29,7 +31,7 @@ function DisplayProperty({ property, setPath }) {
 						<img src={bed} alt="" /> {property.available_bedrooms} beds available
 					</h3>
 					<h3>
-						<img src={calander} alt="" />
+						<img src={calender} alt="" />
 						Available:{' '}
 						{new Date(property.date_available).toLocaleString('en-US', {
 							year: 'numeric',
