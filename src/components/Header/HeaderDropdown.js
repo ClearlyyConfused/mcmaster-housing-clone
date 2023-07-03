@@ -10,8 +10,6 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 
 	const [display, setDisplay] = useState(false);
 
-	console.log(currentPage);
-
 	let headerTop;
 	/* prettier-ignore */
 	if (currentPage === 'HOME') {

@@ -25,8 +25,8 @@ function PropertySort({ setSortby, propertyList, setPropertyList }) {
 			<select onChange={handleChange} name="sortby" id="sortby">
 				<option
 					selected={
-						localStorage.queries !== undefined
-							? JSON.parse(localStorage.queries).sortby === 'LATEST'
+						localStorage.sortBy !== undefined
+							? JSON.parse(localStorage.sortBy) === 'LATEST'
 								? 'SELECT'
 								: ''
 							: ''
@@ -37,8 +37,8 @@ function PropertySort({ setSortby, propertyList, setPropertyList }) {
 				</option>
 				<option
 					selected={
-						localStorage.queries !== undefined
-							? JSON.parse(localStorage.queries).sortby === 'OLDEST'
+						localStorage.sortBy !== undefined
+							? JSON.parse(localStorage.sortBy) === 'OLDEST'
 								? 'SELECT'
 								: ''
 							: ''
@@ -49,8 +49,8 @@ function PropertySort({ setSortby, propertyList, setPropertyList }) {
 				</option>
 				<option
 					selected={
-						localStorage.queries !== undefined
-							? JSON.parse(localStorage.queries).sortby === 'PRICE ^'
+						localStorage.sortBy !== undefined
+							? JSON.parse(localStorage.sortBy) === 'PRICE ^'
 								? 'PRICE ^'
 								: ''
 							: ''
@@ -61,8 +61,8 @@ function PropertySort({ setSortby, propertyList, setPropertyList }) {
 				</option>
 				<option
 					selected={
-						localStorage.queries !== undefined
-							? JSON.parse(localStorage.queries).sortby === 'PRICE v'
+						localStorage.sortBy !== undefined
+							? JSON.parse(localStorage.sortBy) === 'PRICE v'
 								? 'PRICE v'
 								: ''
 							: ''

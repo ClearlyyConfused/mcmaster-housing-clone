@@ -18,26 +18,24 @@ function PropertyListings() {
 	const [allPropertyList, setAllPropertyList] = useState([]);
 	// what to sort properties by
 	const [sortby, setSortby] = useState(
-		localStorage.queries !== undefined ? JSON.parse(localStorage.queries).sortby : 'LATEST'
+		localStorage.sortBy !== undefined ? JSON.parse(localStorage.sortBy) : 'LATEST'
 	);
 
-	// onload, queries property set by queries saved in localStorage
+	// onload, queries properties by queries saved in localStorage
 	useEffect(() => {
 		fetch('https://mcmaster-housing-clone-api.vercel.app/property')
 			.then((response) => response.json())
 			.then((data) => {
-				// fetch all properties as data
-
-				// if localStorage empty (no sort by, no filters), sort all properties by latest
-				if (localStorage.queries === undefined && localStorage.filters === undefined) {
-					sortProperties('LATEST', data, setPropertyList);
+				// if localStorage.filters empty, sort all properties by sortBy in localStorage or default LATEST
+				if (localStorage.filters === undefined) {
+					if (localStorage.sortBy !== undefined) {
+						sortProperties(JSON.parse(localStorage.sortBy), data, setPropertyList);
+					} else {
+						sortProperties('LATEST', data, setPropertyList);
+					}
 				}
-				// if localStorage.filters empty (sort by, no filters), sort all properties by the sort by in localStorage
-				else if (localStorage.filters === undefined) {
-					sortProperties(JSON.parse(localStorage.queries).sortby, data, setPropertyList);
-				}
-				// if localStorage.filters not empty, then sortby also not empty (default LATEST when filtered)
-				// filter all properties (data) by filters in localStorage, sort filtered by the sort by in localStorage
+				// if localStorage.filters not empty, then sortBy also not empty (default LATEST when filtered)
+				// filter all properties by filters in localStorage, sort filtered by the sortBy in localStorage
 				else {
 					let newList = [];
 					for (const property of data) {
@@ -50,7 +48,7 @@ function PropertyListings() {
 							newList.push(property);
 						}
 					}
-					sortProperties(JSON.parse(localStorage.queries).sortby, newList, setPropertyList);
+					sortProperties(JSON.parse(localStorage.sortBy), newList, setPropertyList);
 				}
 				setAllPropertyList(data);
 				setLoading(false);
