@@ -16,10 +16,7 @@ function PropertyListings() {
 	const [propertyList, setPropertyList] = useState([]);
 	// all properties (used to reset filter)
 	const [allPropertyList, setAllPropertyList] = useState([]);
-	// what to sort properties by
-	const [sortby, setSortby] = useState(
-		localStorage.sortBy !== undefined ? JSON.parse(localStorage.sortBy) : 'LATEST'
-	);
+	// what properties are sorted by stored in localStorage
 
 	// onload, queries properties by queries saved in localStorage
 	useEffect(() => {
@@ -64,8 +61,6 @@ function PropertyListings() {
 					propertyList={propertyList}
 					setPropertyList={setPropertyList}
 					allPropertyList={allPropertyList}
-					sortby={sortby}
-					setSortby={setSortby}
 				/>
 
 				<section className="property-listings">

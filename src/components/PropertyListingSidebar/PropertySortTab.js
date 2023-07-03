@@ -1,21 +1,18 @@
 import sortProperties from './sortProperties';
 
-function PropertySort({ setSortby, propertyList, setPropertyList }) {
+function PropertySort({ propertyList, setPropertyList }) {
+	// whenever dropdown value changes, call sortProperties with new sortBy
 	function handleChange() {
 		if (document.getElementById('sortby').value === 'Price ^') {
-			setSortby('PRICE ^');
 			sortProperties('PRICE ^', propertyList, setPropertyList);
 		}
 		if (document.getElementById('sortby').value === 'Price v') {
-			setSortby('PRICE v');
 			sortProperties('PRICE v', propertyList, setPropertyList);
 		}
 		if (document.getElementById('sortby').value === 'LATEST') {
-			setSortby('LATEST');
 			sortProperties('LATEST', propertyList, setPropertyList);
 		}
 		if (document.getElementById('sortby').value === 'OLDEST') {
-			setSortby('OLDEST');
 			sortProperties('OLDEST', propertyList, setPropertyList);
 		}
 	}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import sortProperties from './sortProperties';
 
-function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
+function PropertyFilter({ setPropertyList, allPropertyList }) {
 	const [minPrice, setMinPrice] = useState(
 		localStorage.filters !== undefined ? JSON.parse(localStorage.filters).minPrice : 0
 	);
@@ -40,7 +40,7 @@ function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
 			'filters',
 			JSON.stringify({ minPrice: minPrice, maxPrice: maxPrice, maxDistance: maxDistance })
 		);
-		sortProperties(sortby, newList, setPropertyList);
+		sortProperties(JSON.parse(localStorage.sortBy), newList, setPropertyList);
 	}
 
 	return (
@@ -86,7 +86,7 @@ function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
 						value={maxDistance}
 						onChange={changeMaxDistance}
 						min="0"
-						max="15"
+						max="30"
 					/>
 				</div>
 				<button className="filter-submit" type="submit">
