@@ -256,5 +256,12 @@
 /* ////////////////////////////////////////////// */
 
 #map {
-	height: 380px;
+	height: 400px;
+	width: 400px;
+	margin: 50px auto;
+
+	@media (max-width: 450px) {
+		margin: 50px auto;
+		width: 90%;
+	}
 }

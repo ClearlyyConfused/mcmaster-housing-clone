@@ -6,10 +6,10 @@ function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
 		localStorage.filters !== undefined ? JSON.parse(localStorage.filters).minPrice : 0
 	);
 	const [maxPrice, setMaxPrice] = useState(
-		localStorage.filters !== undefined ? JSON.parse(localStorage.filters).maxPrice : 1000
+		localStorage.filters !== undefined ? JSON.parse(localStorage.filters).maxPrice : 3000
 	);
 	const [maxDistance, setMaxDistance] = useState(
-		localStorage.filters !== undefined ? JSON.parse(localStorage.filters).maxDistance : 10
+		localStorage.filters !== undefined ? JSON.parse(localStorage.filters).maxDistance : 30
 	);
 
 	function changeMinPrice(event) {
@@ -25,7 +25,6 @@ function PropertyFilter({ sortby, setPropertyList, allPropertyList }) {
 	}
 
 	function filterProperties(filter) {
-		console.log(sortby);
 		let newList = [];
 		for (const property of allPropertyList) {
 			if (

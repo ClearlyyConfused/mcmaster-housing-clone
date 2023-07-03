@@ -16,7 +16,7 @@ function DisplayProperty({ property, setPath }) {
 				<img src={property.propertyImage} alt="" loading="lazy" />
 			</div>
 			<div className="property-info">
-				<h2>{property.location}</h2>
+				<h2>{property.location.toUpperCase()}</h2>
 				<div className="divider"></div>
 				<div className="property-sub-info">
 					<h3>

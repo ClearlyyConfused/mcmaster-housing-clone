@@ -10,6 +10,8 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 
 	const [display, setDisplay] = useState(false);
 
+	console.log(currentPage);
+
 	let headerTop;
 	/* prettier-ignore */
 	if (currentPage === 'HOME') {
@@ -24,9 +26,9 @@ function HeaderDropDown({ currentPage, setCurrentPage }) {
 		headerTop = (
 			<button onClick={() => {setDisplay(true);}}>AVAILABLE PROPERTIES</button>
 		);
-	} else if (currentPage === 'MOBILE VIEW') {
+	} else {
 		headerTop = (
-			<button onClick={() => {setDisplay(true);}}>MOBILE VIEW</button>
+			<button onClick={() => {setDisplay(true);}}>AVAILABLE PROPERTIES</button>
 		);
 	}
 

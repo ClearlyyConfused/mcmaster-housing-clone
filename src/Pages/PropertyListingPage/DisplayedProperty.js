@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import CheckLogin from '../../Auth/CheckLogin';
 import Login from '../../Auth/Login/LoginPage';
 import L from 'leaflet';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -12,6 +12,8 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 let DefaultIcon = L.icon({
 	iconUrl: icon,
 	shadowUrl: iconShadow,
+	iconSize: [24, 36],
+	iconAnchor: [12, 36],
 });
 
 L.Marker.prototype.options.icon = DefaultIcon;
@@ -120,7 +122,7 @@ function DisplayedProperty() {
 						<MapContainer
 							id="map"
 							center={[propertyCord.lat, propertyCord.lon]}
-							zoom={13}
+							zoom={12}
 							scrollWheelZoom={false}
 						>
 							<TileLayer
@@ -141,22 +143,6 @@ function DisplayedProperty() {
 			</main>
 		);
 	}
-}
-
-function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-	var R = 6371; // Radius of the earth in km
-	var dLat = deg2rad(lat2 - lat1); // deg2rad below
-	var dLon = deg2rad(lon2 - lon1);
-	var a =
-		Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-		Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-	var d = R * c; // Distance in km
-	return d.toFixed(2);
-}
-
-function deg2rad(deg) {
-	return deg * (Math.PI / 180);
 }
 
 export default DisplayedProperty;
