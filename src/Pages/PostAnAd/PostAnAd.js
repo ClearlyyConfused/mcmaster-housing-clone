@@ -2,9 +2,11 @@ import CheckLogin from '../../Auth/CheckLogin';
 import Login from '../../Auth/Login/LoginPage';
 import './PostAnAd.css';
 import UserAds from './UserAds';
+import { useNavigate } from 'react-router-dom';
 
 function PostAnAd() {
 	const user = CheckLogin()[0];
+	const navigate = useNavigate();
 
 	async function fetchPropertyDistance(propertyLocation) {
 		return fetch(
@@ -30,7 +32,6 @@ function PostAnAd() {
 		event.preventDefault();
 		const propertyDistance = await fetchPropertyDistance(event.target.elements.location.value);
 
-		// if message has an image, convert it then call sendMessage with result
 		let reader = new FileReader();
 		reader.readAsDataURL(event.target.elements.image.files[0]);
 		reader.onloadend = () => {
@@ -56,8 +57,9 @@ function PostAnAd() {
 
 			fetch('https://mcmaster-housing-clone-api.vercel.app/newProperty', reqOptions).then((res) =>
 				res.json().then((data) => {
-					event.target.elements.message.value = '';
-					event.target.elements.image.value = '';
+					navigate('/available-properties/' + event.target.elements.location.value.replace(/\s+/g, '-'), {
+						replace: true,
+					});
 				})
 			);
 		};

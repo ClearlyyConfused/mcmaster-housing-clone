@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
+
 import CheckLogin from '../../Auth/CheckLogin';
 import Login from '../../Auth/Login/LoginPage';
-import L from 'leaflet';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
+// sets default icon for map Marker
 let DefaultIcon = L.icon({
 	iconUrl: icon,
 	shadowUrl: iconShadow,
 	iconSize: [24, 36],
 	iconAnchor: [12, 36],
 });
-
 L.Marker.prototype.options.icon = DefaultIcon;
 
 function DisplayedProperty() {
@@ -27,27 +28,29 @@ function DisplayedProperty() {
 	// get the property name from the url
 	const propertyNameUrl = useParams().propertyName.replace(/\s+/g, '-');
 
+	// fetches property location's coordinates
 	useEffect(() => {
 		window.scrollTo(0, 0);
-
-		fetch(
-			'https://nominatim.openstreetmap.org/search?' +
-				new URLSearchParams({
-					street: property.location,
-					city: 'hamilton',
-					country: 'canada',
-					format: 'json',
+		if (property !== null) {
+			fetch(
+				'https://nominatim.openstreetmap.org/search?' +
+					new URLSearchParams({
+						street: property.location,
+						city: 'hamilton',
+						country: 'canada',
+						format: 'json',
+					})
+			).then((res) =>
+				res.json().then((data) => {
+					setPropertyCord({ lat: data[0].lat, lon: data[0].lon });
 				})
-		).then((res) =>
-			res.json().then((data) => {
-				setPropertyCord({ lat: data[0].lat, lon: data[0].lon });
-			})
-		);
-	}, []);
+			);
+		}
+	}, [property]);
 
 	if (user === null) {
 		return <Login />;
-	} // if no state passed in link fetch from api manually
+	} // if no state passed in link fetch from api manually (happens when link visited directly)
 	else if (property === null) {
 		fetch('https://mcmaster-housing-clone-api.vercel.app/property')
 			.then((response) => response.json())
@@ -117,7 +120,7 @@ function DisplayedProperty() {
 						</p>
 					</div>
 				</section>
-				<section>
+				<section className="map">
 					{propertyCord.lat !== undefined ? (
 						<MapContainer
 							id="map"
@@ -137,7 +140,7 @@ function DisplayedProperty() {
 							</Marker>
 						</MapContainer>
 					) : (
-						'Location could not be found on map.'
+						<p>Location could not be found on map.</p>
 					)}
 				</section>
 			</main>

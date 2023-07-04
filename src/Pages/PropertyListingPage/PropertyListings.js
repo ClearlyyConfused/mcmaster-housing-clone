@@ -2,10 +2,11 @@ import './PropertyListings.css';
 import { useState, useEffect } from 'react';
 
 import CheckLogin from '../../Auth/CheckLogin';
-
 import Login from '../../Auth/Login/LoginPage';
+
 import PropertySidebar from '../../components//PropertyListingSidebar/PropertySidebar';
 import DisplayProperty from './DisplayProperty';
+
 import sortProperties from '../../Helper/sortProperties';
 import filterProperties from '../../Helper/filterProperties';
 
