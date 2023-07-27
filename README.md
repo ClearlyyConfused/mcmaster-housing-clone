@@ -13,8 +13,8 @@ https://offcampus-mcmaster-clone.netlify.app/
 
 - Login using user's Google account
 - Able to create advertisements with information about a property
-- Advertisements can be sorted and filtered
-- Each advertisement displays a map of the location of the property
+- Listed properties can be sorted and filtered
+- Each property page displays information and a map of where the property is located
 
 ## Related
 
