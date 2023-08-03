@@ -28,41 +28,48 @@ function PostAnAd() {
 		);
 	}
 
+	function convertToBase64(file) {
+		return new Promise((resolve, reject) => {
+			const reader = new FileReader();
+			reader.readAsDataURL(file);
+			reader.onload = () => resolve(reader.result);
+		});
+	}
+
 	async function handleSubmit(event) {
 		event.preventDefault();
 		const propertyDistance = await fetchPropertyDistance(event.target.elements.location.value);
+		let images = [];
+		for (const image of event.target.elements.image.files) {
+			let convertedImage = await convertToBase64(image);
+			images.push(convertedImage);
+		}
 
-		let reader = new FileReader();
-		reader.readAsDataURL(event.target.elements.image.files[0]);
-		reader.onloadend = () => {
-			const image = reader.result;
-
-			const reqOptions = {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					landlord_email: user.email,
-					location: event.target.elements.location.value,
-					description: event.target.elements.description.value,
-					cost_per_month: event.target.elements.cost_per_month.value,
-					distance: propertyDistance,
-					rental_term: event.target.elements.rental_term.value,
-					available_bedrooms: event.target.elements.available_bedrooms.value,
-					date_available: event.target.elements.date_available.value,
-					image: image,
-				}),
-			};
-
-			fetch('https://mcmaster-housing-clone-api.vercel.app/newProperty', reqOptions).then((res) =>
-				res.json().then((data) => {
-					navigate('/available-properties/' + event.target.elements.location.value.replace(/\s+/g, '-'), {
-						replace: true,
-					});
-				})
-			);
+		const reqOptions = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				landlord_email: user.email,
+				location: event.target.elements.location.value,
+				description: event.target.elements.description.value,
+				cost_per_month: event.target.elements.cost_per_month.value,
+				distance: propertyDistance,
+				rental_term: event.target.elements.rental_term.value,
+				available_bedrooms: event.target.elements.available_bedrooms.value,
+				date_available: event.target.elements.date_available.value,
+				image: images.reverse(),
+			}),
 		};
+
+		fetch('https://mcmaster-housing-clone-api.vercel.app/newProperty', reqOptions).then((res) =>
+			res.json().then((data) => {
+				navigate('/available-properties/' + event.target.elements.location.value.replace(/\s+/g, '-'), {
+					replace: true,
+				});
+			})
+		);
 	}
 
 	return user === null ? (
@@ -141,7 +148,14 @@ function PostAnAd() {
 						<label className="image-input" htmlFor="image">
 							Add Img
 						</label>
-						<input required type="file" id="image" name="image" accept="image/png, image/jpeg"></input>
+						<input
+							required
+							type="file"
+							id="image"
+							name="image"
+							accept="image/png, image/jpeg"
+							multiple
+						></input>
 					</div>
 					{/* DESCRIPTION ---------------------------- */}
 					<div className="description-input">

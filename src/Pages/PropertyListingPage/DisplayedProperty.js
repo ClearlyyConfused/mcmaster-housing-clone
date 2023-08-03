@@ -66,7 +66,7 @@ function DisplayedProperty() {
 		return (
 			<main className="displayed-property">
 				<section className="main-display">
-					<img src={property.propertyImage} alt="" srcset="" />
+					<img src={property.propertyImage[0]} alt="" srcset="" />
 					<div className="location-info">
 						<h1>{property.location.toUpperCase()}</h1>
 						<p>{property.description}</p>

@@ -15,7 +15,7 @@ function DisplayProperty({ property }) {
 			state={property}
 		>
 			<div className="property-img-container">
-				<img src={property.propertyImage} alt="" loading="lazy" />
+				<img src={property.propertyImage[0]} alt="" loading="lazy" />
 			</div>
 			<div className="property-info">
 				<h2>{property.location.toUpperCase()}</h2>

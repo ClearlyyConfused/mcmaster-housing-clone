@@ -45,7 +45,7 @@ function UserAds() {
 					: userAds.map((ad) => {
 							return (
 								<div className="ad">
-									<img src={ad.propertyImage} alt="" srcset="" />
+									<img src={ad.propertyImage[0]} alt="" srcset="" />
 									<h2>{ad.location}</h2>
 									<button
 										onClick={() => {
