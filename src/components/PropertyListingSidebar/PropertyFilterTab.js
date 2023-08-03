@@ -2,7 +2,7 @@ import { useState } from 'react';
 import sortProperties from '../../Helper/sortProperties';
 import filterProperties from '../../Helper/filterProperties';
 
-function PropertyFilter({ setPropertyList, allPropertyList }) {
+function PropertyFilter({ setPropertyList, allPropertyList, resetPropertyPage }) {
 	// check localStorage for filters, if none display default value
 	const [minPrice, setMinPrice] = useState(
 		localStorage.filters !== undefined ? JSON.parse(localStorage.filters).minPrice : 0
@@ -27,6 +27,11 @@ function PropertyFilter({ setPropertyList, allPropertyList }) {
 	// filters properties based on filters, store filters in localStorage, sort properties by sortBy
 	function handleFilter(filters) {
 		const newList = filterProperties(allPropertyList, filters);
+		resetPropertyPage();
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
 		sortProperties(JSON.parse(localStorage.sortBy), newList, setPropertyList);
 	}
 

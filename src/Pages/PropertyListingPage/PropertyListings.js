@@ -30,7 +30,7 @@ function PropertyListings() {
 	}, [displayedPropertyRange]);
 
 	function createPageButtons() {
-		const numOfPages = Math.ceil(allPropertyList.length / numPropertiesPerPage);
+		const numOfPages = Math.ceil(propertyList.length / numPropertiesPerPage);
 		let pageButtons = [];
 		for (let i = 0; i < numOfPages; i++) {
 			pageButtons.push(
@@ -40,14 +40,23 @@ function PropertyListings() {
 							1 + i * numPropertiesPerPage,
 							numPropertiesPerPage + i * numPropertiesPerPage + 1,
 						]);
-						window.scroll(0, 0);
+						window.scrollTo({
+							top: 0,
+							behavior: 'smooth',
+						});
 					}}
+					// if current displayRange is same as the one button is setting to, set button as active
+					className={displayedPropertyRange[0] === 1 + i * numPropertiesPerPage ? 'active' : ''}
 				>
-					{i}
+					{i + 1}
 				</button>
 			);
 		}
 		return pageButtons;
+	}
+
+	function resetPropertyPage() {
+		setDisplayedPropertyRange([1, 1 + numPropertiesPerPage]);
 	}
 
 	if (user === null) {
@@ -59,6 +68,7 @@ function PropertyListings() {
 					propertyList={propertyList}
 					setPropertyList={setPropertyList}
 					allPropertyList={allPropertyList}
+					resetPropertyPage={resetPropertyPage}
 				/>
 
 				<div className="property-listings-container">
@@ -73,7 +83,44 @@ function PropertyListings() {
 								})
 						)}
 					</section>
-					<section className="property-listings-pages">{createPageButtons()}</section>
+					<section className="property-listings-pages">
+						<button
+							onClick={() => {
+								if (displayedPropertyRange[0] - numPropertiesPerPage > 0) {
+									setDisplayedPropertyRange([
+										displayedPropertyRange[0] - numPropertiesPerPage,
+										displayedPropertyRange[1] - numPropertiesPerPage,
+									]);
+								}
+								window.scrollTo({
+									top: 0,
+									behavior: 'smooth',
+								});
+							}}
+						>
+							Previous
+						</button>
+						{createPageButtons()}
+						<button
+							onClick={() => {
+								if (
+									displayedPropertyRange[1] + numPropertiesPerPage <=
+									propertyList.length + numPropertiesPerPage
+								) {
+									setDisplayedPropertyRange([
+										displayedPropertyRange[0] + numPropertiesPerPage,
+										displayedPropertyRange[1] + numPropertiesPerPage,
+									]);
+								}
+								window.scrollTo({
+									top: 0,
+									behavior: 'smooth',
+								});
+							}}
+						>
+							Next
+						</button>
+					</section>
 				</div>
 			</main>
 		);
