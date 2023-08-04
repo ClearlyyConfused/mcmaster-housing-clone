@@ -64,12 +64,15 @@ function DisplayedProperty() {
 	}, [viewWidth]);
 
 	function createPageIndicators() {
-		if (property.propertyImage.length > 3) {
+		if (
+			property.propertyImage.length > 3 ||
+			(property.propertyImage.length === 3 && viewWidth <= 950) ||
+			(property.propertyImage.length === 2 && viewWidth <= 650)
+		) {
 			let pageIndicators = [];
 			for (let i = 0; i < property.propertyImage.length; i++) {
 				pageIndicators.push(<div className={displayedImages[0] === i ? 'active' : ''}></div>);
 			}
-
 			return pageIndicators;
 		}
 	}
@@ -149,7 +152,9 @@ function DisplayedProperty() {
 				{property.propertyImage.length > 1 ? (
 					<section className="images">
 						<div className="images-buttons-container">
-							{property.propertyImage.length > 3 ? (
+							{property.propertyImage.length > 3 ||
+							(property.propertyImage.length === 3 && viewWidth <= 950) ||
+							(property.propertyImage.length === 2 && viewWidth <= 650) ? (
 								<button
 									onClick={() => {
 										let array = [];
@@ -173,7 +178,9 @@ function DisplayedProperty() {
 									return <img src={property.propertyImage[i]} alt="" srcset="" />;
 								}
 							})}
-							{property.propertyImage.length > 3 ? (
+							{property.propertyImage.length > 3 ||
+							(property.propertyImage.length === 3 && viewWidth <= 950) ||
+							(property.propertyImage.length === 2 && viewWidth <= 650) ? (
 								<button
 									onClick={() => {
 										let array = [];
