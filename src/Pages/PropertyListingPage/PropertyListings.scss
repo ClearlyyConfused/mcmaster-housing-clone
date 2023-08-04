@@ -280,6 +280,20 @@
 			}
 		}
 	}
+
+	.images {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+		width: 100%;
+		padding: 40px 20px;
+		border-top: 5px solid colors.$main-yellow;
+		background-color: rgb(34, 34, 34);
+
+		img {
+			width: 25%;
+		}
+	}
 }
 
 /* ////////////////////////////////////////////// */

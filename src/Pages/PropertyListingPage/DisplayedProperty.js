@@ -28,6 +28,8 @@ function DisplayedProperty() {
 	// get the property name from the url
 	const propertyNameUrl = useParams().propertyName.replace(/\s+/g, '-');
 
+	const [displayedImages, setDisplayedImages] = useState([0, 1, 2]);
+
 	// fetches property location's coordinates
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -119,6 +121,51 @@ function DisplayedProperty() {
 							})}
 						</p>
 					</div>
+				</section>
+				<section className="images">
+					{property.propertyImage.length > 2 ? (
+						<button
+							onClick={() => {
+								let array = [];
+								for (const val of displayedImages) {
+									if (val - 1 > -1) {
+										array.push(val - 1);
+									} else {
+										array.push(property.propertyImage.length - 1);
+									}
+								}
+								setDisplayedImages(array);
+							}}
+						>
+							Back
+						</button>
+					) : (
+						''
+					)}
+					{displayedImages.map((i) => {
+						if (property.propertyImage[i]) {
+							return <img src={property.propertyImage[i]} alt="" srcset="" />;
+						}
+					})}
+					{property.propertyImage.length > 2 ? (
+						<button
+							onClick={() => {
+								let array = [];
+								for (const val of displayedImages) {
+									if (val + 1 < property.propertyImage.length) {
+										array.push(val + 1);
+									} else {
+										array.push(0);
+									}
+								}
+								setDisplayedImages(array);
+							}}
+						>
+							Next
+						</button>
+					) : (
+						''
+					)}
 				</section>
 				<section className="map">
 					{propertyCord.lat !== undefined ? (
