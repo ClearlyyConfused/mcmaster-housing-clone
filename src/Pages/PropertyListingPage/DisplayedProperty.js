@@ -3,6 +3,7 @@ import { useLocation, useParams } from 'react-router-dom';
 
 import CheckLogin from '../../Auth/CheckLogin';
 import Login from '../../Auth/Login/LoginPage';
+import ViewWidth from '../../Helper/ViewWidth';
 
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -21,6 +22,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 function DisplayedProperty() {
 	const user = CheckLogin()[0];
+	const viewWidth = ViewWidth();
 	const [dropdown, setDropdown] = useState(false);
 	// gets property info from the state passed in the link
 	const [property, setProperty] = useState(useLocation().state);
@@ -49,6 +51,28 @@ function DisplayedProperty() {
 			);
 		}
 	}, [property]);
+
+	// show only a number of display images at lower viewports
+	useEffect(() => {
+		if (viewWidth > 950) {
+			setDisplayedImages([0, 1, 2]);
+		} else if (viewWidth > 650) {
+			setDisplayedImages([0, 1]);
+		} else {
+			setDisplayedImages([0]);
+		}
+	}, [viewWidth]);
+
+	function createPageIndicators() {
+		if (property.propertyImage.length > 3) {
+			let pageIndicators = [];
+			for (let i = 0; i < property.propertyImage.length; i++) {
+				pageIndicators.push(<div className={displayedImages[0] === i ? 'active' : ''}></div>);
+			}
+
+			return pageIndicators;
+		}
+	}
 
 	if (user === null) {
 		return <Login />;
@@ -122,51 +146,58 @@ function DisplayedProperty() {
 						</p>
 					</div>
 				</section>
-				<section className="images">
-					{property.propertyImage.length > 2 ? (
-						<button
-							onClick={() => {
-								let array = [];
-								for (const val of displayedImages) {
-									if (val - 1 > -1) {
-										array.push(val - 1);
-									} else {
-										array.push(property.propertyImage.length - 1);
-									}
+				{property.propertyImage.length > 1 ? (
+					<section className="images">
+						<div className="images-buttons-container">
+							{property.propertyImage.length > 3 ? (
+								<button
+									onClick={() => {
+										let array = [];
+										for (const val of displayedImages) {
+											if (val - 1 > -1) {
+												array.push(val - 1);
+											} else {
+												array.push(property.propertyImage.length - 1);
+											}
+										}
+										setDisplayedImages(array);
+									}}
+								>
+									&lt;
+								</button>
+							) : (
+								''
+							)}
+							{displayedImages.map((i) => {
+								if (property.propertyImage[i]) {
+									return <img src={property.propertyImage[i]} alt="" srcset="" />;
 								}
-								setDisplayedImages(array);
-							}}
-						>
-							Back
-						</button>
-					) : (
-						''
-					)}
-					{displayedImages.map((i) => {
-						if (property.propertyImage[i]) {
-							return <img src={property.propertyImage[i]} alt="" srcset="" />;
-						}
-					})}
-					{property.propertyImage.length > 2 ? (
-						<button
-							onClick={() => {
-								let array = [];
-								for (const val of displayedImages) {
-									if (val + 1 < property.propertyImage.length) {
-										array.push(val + 1);
-									} else {
-										array.push(0);
-									}
-								}
-								setDisplayedImages(array);
-							}}
-						>
-							Next
-						</button>
-					) : (
-						''
-					)}
-				</section>
+							})}
+							{property.propertyImage.length > 3 ? (
+								<button
+									onClick={() => {
+										let array = [];
+										for (const val of displayedImages) {
+											if (val + 1 < property.propertyImage.length) {
+												array.push(val + 1);
+											} else {
+												array.push(0);
+											}
+										}
+										setDisplayedImages(array);
+									}}
+								>
+									&gt;
+								</button>
+							) : (
+								''
+							)}
+						</div>
+						<div className="image-indicators">{createPageIndicators()}</div>
+					</section>
+				) : (
+					''
+				)}
 				<section className="map">
 					{propertyCord.lat !== undefined ? (
 						<MapContainer

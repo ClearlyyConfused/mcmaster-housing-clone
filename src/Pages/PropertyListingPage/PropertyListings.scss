@@ -283,15 +283,64 @@
 
 	.images {
 		display: flex;
-		justify-content: center;
-		gap: 10px;
+		flex-direction: column;
 		width: 100%;
-		padding: 40px 20px;
+		padding: 40px 15px;
+		padding-bottom: 0px;
 		border-top: 5px solid colors.$main-yellow;
 		background-color: rgb(34, 34, 34);
+		box-sizing: border-box;
 
-		img {
-			width: 25%;
+		.images-buttons-container {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+
+			button {
+				background: none;
+				background-color: colors.$main-yellow;
+				border: none;
+				font-size: 40px;
+				height: fit-content;
+				border: none;
+				width: 45px;
+				height: 45px;
+				padding: 0px;
+				margin: auto 0px;
+				color: black;
+				border-radius: 30px;
+				&:hover {
+					transition: background-color 0.2s;
+					background-color: white;
+				}
+			}
+			img {
+				flex: 1;
+				min-width: 0;
+				min-height: 200px;
+				object-fit: cover;
+			}
+		}
+
+		.image-indicators {
+			color: white;
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+			padding: 10px;
+
+			div {
+				display: flex;
+				justify-content: center;
+				background-color: #5d6a72;
+				width: 10px;
+				height: 10px;
+				border-radius: 10px;
+				border: 2px solid white;
+			}
+		}
+		.active {
+			background-color: colors.$main-red !important;
 		}
 	}
 }
