@@ -4,6 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import CheckLogin from '../../Auth/CheckLogin';
 import Login from '../../Auth/Login/LoginPage';
 import ViewWidth from '../../Helper/ViewWidth';
+import ImagePopup from './ImagePopup';
 
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -31,6 +32,7 @@ function DisplayedProperty() {
 	const propertyNameUrl = useParams().propertyName.replace(/\s+/g, '-');
 
 	const [displayedImages, setDisplayedImages] = useState([0, 1, 2]);
+	const [imagePopup, setImagePopup] = useState(undefined);
 
 	// fetches property location's coordinates
 	useEffect(() => {
@@ -175,7 +177,16 @@ function DisplayedProperty() {
 							)}
 							{displayedImages.map((i) => {
 								if (property.propertyImage[i]) {
-									return <img src={property.propertyImage[i]} alt="" srcset="" />;
+									return (
+										<img
+											src={property.propertyImage[i]}
+											alt=""
+											srcset=""
+											onClick={() => {
+												setImagePopup(property.propertyImage[i]);
+											}}
+										/>
+									);
 								}
 							})}
 							{property.propertyImage.length > 3 ||
@@ -201,6 +212,7 @@ function DisplayedProperty() {
 							)}
 						</div>
 						<div className="image-indicators">{createPageIndicators()}</div>
+						<ImagePopup image={imagePopup} setImagePopup={setImagePopup} />
 					</section>
 				) : (
 					''
