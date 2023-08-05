@@ -1,9 +1,19 @@
+html {
+	overscroll-behavior-y: none;
+	height: 100%;
+	overflow-y: hidden;
+}
 body {
+	height: 100%;
 	margin: 0;
 	font-family: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
 	overflow-x: hidden;
+	overscroll-behavior-y: none;
 }
 
+button:hover {
+	cursor: pointer;
+}
 button:hover {
 	cursor: pointer;
 }
