@@ -7,7 +7,7 @@ Clone of McMaster's offcampus housing site. Allows users to create new property 
 
 ## Deployment 🚀
 
-https://offcampus-mcmaster-clone.netlify.app/
+https://mcmaster-housing-clone.vercel.app/
 
 ## Features
 
