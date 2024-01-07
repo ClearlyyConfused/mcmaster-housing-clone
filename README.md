@@ -23,7 +23,8 @@ https://offcampus-mcmaster-clone.netlify.app/
 
 ## Screenshots 📸
 
-![App Screenshot 1](./README_images/Screenshot%202023-07-27%20165517.png)
-![App Screenshot 2](./README_images/Screenshot%202023-07-27%20165632.png)
-![App Screenshot 3](./README_images/Screenshot%202023-07-27%20165656.png)
-![App Screenshot 4](./README_images/Screenshot%202023-07-27%20165929.png)
+![App Screenshot 1](./README_images/offcampus-mcmaster.png)
+![App Screenshot 2](./README_images/offcampus-mcmaster2.png)
+![App Screenshot 3](./README_images/offcampus-mcmaster3.png)
+![App Screenshot 4](./README_images/offcampus-mcmaster4.png)
+![App Screenshot 5](./README_images/offcampus-mcmaster5.png)
